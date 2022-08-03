@@ -31,7 +31,7 @@ body {
     width: 90%;
     height: 80%;
     background-color: #ff7b01;
-    border-radius: 20px;
+    border-radius: 45px;
     /* border: 15px solid #ff7b01; */
     border-top: 10px solid #ff7b01;
     border-bottom: 10px solid #ff7b01;
@@ -71,7 +71,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 45px;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     display: flex;
 }
