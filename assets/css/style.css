@@ -51,11 +51,6 @@ body {
     transform: translateY(-50%);
 }
 
-.left__circle i, .right__circle i {
-    font-size: 16px;
-    color: red;
-}
-
 .right__circle {
     position: absolute;
     right: 12px;
@@ -70,21 +65,67 @@ body {
 .left__circle i, .right__circle i {
     font-size: 16px;
     color: rgb(253, 38, 38);
+    position: relative;
+    text-shadow: 0 0 0.5rem #fff,
+                 0 0 1rem #fff,
+                 0 0 1.5rem #fff,
+                 0 0 2.5rem rgb(253, 38, 38),
+                 0 0 4rem rgb(253, 38, 38),
+                 0 0 5.5rem rgb(253, 38, 38),
+                 0 0 6rem rgb(253, 38, 38),
+                 0 0 9rem rgb(253, 38, 38);
     animation: animate 4s ease infinite;
+}
+
+.left__circle i::after, .right__circle i::after {
+    content: '';
+    position: absolute;
+    border-right: 3px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+    right: 2px;
+    top: 1px;
 }
 
 @keyframes animate{
     0%{
         color: rgb(253, 38, 38);
+        text-shadow: 0 0 0.5rem #fff,
+                    0 0 1rem #fff,
+                    0 0 1.5rem #fff,
+                    0 0 2.5rem rgb(253, 38, 38),
+                    0 0 4rem rgb(253, 38, 38),
+                    0 0 5.5rem rgb(253, 38, 38),
+                    0 0 6rem rgb(253, 38, 38),
+                    0 0 9rem rgb(253, 38, 38);
     }
     45%{
         color: rgb(253, 38, 38);
+        text-shadow: 0 0 0.5rem #fff,
+                    0 0 1rem #fff,
+                    0 0 1.5rem #fff,
+                    0 0 2.5rem rgb(253, 38, 38),
+                    0 0 4rem rgb(253, 38, 38),
+                    0 0 5.5rem rgb(253, 38, 38),
+                    0 0 6rem rgb(253, 38, 38),
+                    0 0 9rem rgb(253, 38, 38);
     }
     70%{
-        color: greenyellow;
+        color: #00ff2a;
+        text-shadow: 0 0 5px #00ff2a,
+        0 0 10px #00ff2a,
+        0 0 15px #00ff2a,
+        0 0 30px #00ff2a,
+        0 0 60px #00ff2a;
     }
     100%{
-        color: greenyellow;
+        color: #00ff2a;
+        text-shadow: 0 0 5px #00ff2a,
+        0 0 10px #00ff2a,
+        0 0 15px #00ff2a,
+        0 0 30px #00ff2a,
+        0 0 60px #00ff2a;
     }
 }
 
@@ -225,6 +266,28 @@ body {
     height: 10.5%;
     left: 0%;
     top: 0;
+}
+
+.img-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.animal-circle::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:  rgba(0, 255, 42, 0.5);
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
 }
 
 .game__container-center-top .img2 {
@@ -615,28 +678,7 @@ body {
     color: orange;
     margin-right: 4px;
 }
-/* .game__container-right .box .amountField{
-    width: 30%;
-    padding: 5%;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-.game__container-right .box .reduceBtn{
-    width: 18%;
-    height: 50%;
-    border-radius: 8px;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
-    color: white;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-} */
+
 .game__container-right .btn-box{
     padding: 0px;
     width: 50%;

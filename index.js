@@ -28,6 +28,7 @@ startBtn.addEventListener("click", ()=> {
         countDown.innerHTML = count
         if(count === 0) {
             countDown.innerHTML = "GO"
+            
         }
         if(count < 0) {
             return countingStop()
@@ -82,7 +83,7 @@ const gameContainer = {
             amount : 0,
         },
         {
-            name : seahorse,
+            name : "seahorse",
             amount: 0,
         },
         {
@@ -105,36 +106,87 @@ const gameContainer = {
             amount:0
         }
     ],
-    totalAmount : 0
+    totalAmount : 600
+}
+
+// function renderAnimal (list) {
+//     for(let i=0; i<list.length; i++){
+//         let item = list[i];
+//     }
+// }
+
+const animalBtn = document.querySelectorAll(".image");
+const price = document.querySelectorAll(".amount");
+const reduceBtn = document.querySelectorAll (".reduceBtn");
+const coin = document.querySelector(".totalCoin")
+
+
+
+
+// const dogBtn = document.getElementById("dog");
+
+// const elephantBtn = document.getElementById("elephant");
+
+// const sheepBtn = document.getElementById("sheep");
+
+// const monkeyBtn = document.getElementById("monkey");
+
+// const jellyfishBtn = document.getElementById("jellyfish");
+
+// const sharkBtn = document.getElementById("shark");
+
+// const seahorseBtn = document.getElementById("seahork");
+
+// const dolphinBtn = document.getElementById("dolphin");
+
+// const tortoiseBtn = document.getElementById("tortoise");
+
+// const whaleBtn = document.getElementById("whale");
+
+// const landBtn = document.getElementById("land");
+
+// const seaBtn = document.getElementById("sea");
+
+for(let i=0; i<animalBtn.length; i++) {
+    animalBtn[i].addEventListener ("click", function () {
+        // renderAnimal(gameContainer.animal)
+        if(animalBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount <= 50) {
+            gameContainer.animal[i].amount += 1
+            price[i].innerHTML = gameContainer.animal[i].amount;
+            gameContainer.totalAmount -= 1;
+            coin.innerHTML = gameContainer.totalAmount;
+        }
+    })
+
+    reduceBtn[i].addEventListener ("click", function () {
+        // renderAnimal(gameContainer.animal)
+        if(reduceBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount > 0) {
+            gameContainer.animal[i].amount -= 1
+            price[i].innerHTML = gameContainer.animal[i].amount;
+            gameContainer.totalAmount += 1;
+            coin.innerHTML = gameContainer.totalAmount;
+        }
+    })
 }
 
 
-const dogBtn = document.getElementById("dog");
+// animal circle animation start +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const animalCircle = document.querySelectorAll(".img-container");
 
-const elephantBtn = document.getElementById("elephant");
+let i=0
+setInterval(() => {
+        if(!animalCircle[i].className.includes("animal-circle")) {
+                animalCircle[i].classList.add("animal-circle")
+                // animalCircle[i].classList.remove("animal-circle")
+            console.log(animalCircle[i])
+        }
+        if(i>0) {
+            animalCircle[i-1].classList.remove("animal-circle")
+        }
+        i++
+        if(i>=32) {
+            animalCircle[i-1].classList.remove("animal-circle")
+            i=0
 
-const sheepBtn = document.getElementById("sheep");
-
-const monkeyBtn = document.getElementById("monkey");
-
-
-// const betBtn = document.querySelectorAll(".animalCircleImg");
-// const reduceBtn = document.querySelectorAll(".reduceBtn");
-// const myValue = document.querySelectorAll(".myValue");
-// const maxValue = document.querySelectorAll(".maxValue");
-// const myOwnCoin = document.querySelector(".myOwnCoin");
-
-// for(let i = 0; i < betBtn.length; i++){
-//     betBtn[i].addEventListener("click", function(){
-//         if(+myValue[i].firstChild.textContent < 50){
-//             myValue[i].firstChild.textContent = +myValue[i].firstChild.textContent + 1;
-//             myOwnCoin.firstChild.textContent = +myOwnCoin.firstChild.textContent - 1;  
-//         }
-//     })
-//     reduceBtn[i].addEventListener("click", function(){
-//         if(+myValue[i].firstChild.textContent > 0){
-//             myValue[i].firstChild.textContent = +myValue[i].firstChild.textContent - 1;
-//             myOwnCoin.firstChild.textContent = +myOwnCoin.firstChild.textContent + 1;  
-//         }
-//     })
-// }
+        }
+}, 100);
