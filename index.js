@@ -9,9 +9,14 @@ function stopAlarm () {
 }
 
 const countDown = document.querySelector(".count-down")
-const alarm = document.getElementById("audioTimer")
+const alarm = document.getElementById("audioTimer");
+const animalCircle = document.querySelectorAll(".img-container");
+const animalBtn = document.querySelectorAll(".image");
+const price = document.querySelectorAll(".amount");
+const reduceBtn = document.querySelectorAll (".reduceBtn");
+const coin = document.querySelector(".totalCoin")
 
-let count = 30;
+let count = 10;
 let timerId = 0;
 
 //Start count +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -22,18 +27,22 @@ startBtn.addEventListener("click", ()=> {
     if(timerId !== 0) {
         return
     }
-
     timerId = setInterval(function () {
         count--
-        countDown.innerHTML = count
+        countDown.textContent = count
+        betsite = "hi"
         if(count === 0) {
-            countDown.innerHTML = "GO"
-            
+            countDown.innerHTML = "GO"            
         }
         if(count < 0) {
-            return countingStop()
+            betsite = "hello"
+            stopAlarm()
+            clearInterval(timerId)
+            animationCircle()
+            return countingStop ()
         }
     },1000)
+    
 
 })
 
@@ -106,20 +115,9 @@ const gameContainer = {
             amount:0
         }
     ],
-    totalAmount : 600
+    totalAmount : 600,
+    totalBet : 0,
 }
-
-// function renderAnimal (list) {
-//     for(let i=0; i<list.length; i++){
-//         let item = list[i];
-//     }
-// }
-
-const animalBtn = document.querySelectorAll(".image");
-const price = document.querySelectorAll(".amount");
-const reduceBtn = document.querySelectorAll (".reduceBtn");
-const coin = document.querySelector(".totalCoin")
-
 
 
 
@@ -147,46 +145,75 @@ const coin = document.querySelector(".totalCoin")
 
 // const seaBtn = document.getElementById("sea");
 
+
+let betsite = "hello"
 for(let i=0; i<animalBtn.length; i++) {
     animalBtn[i].addEventListener ("click", function () {
-        // renderAnimal(gameContainer.animal)
-        if(animalBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount <= 50) {
-            gameContainer.animal[i].amount += 1
-            price[i].innerHTML = gameContainer.animal[i].amount;
-            gameContainer.totalAmount -= 1;
-            coin.innerHTML = gameContainer.totalAmount;
+        if(betsite === "hello") {
+            return
+        }else {
+            if(animalBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount < 50) {
+                gameContainer.animal[i].amount += 1
+                price[i].innerHTML = gameContainer.animal[i].amount;
+                gameContainer.totalAmount -= 1;
+                coin.innerHTML = gameContainer.totalAmount;
+            }
         }
+        totalBetAmount()
     })
 
     reduceBtn[i].addEventListener ("click", function () {
-        // renderAnimal(gameContainer.animal)
-        if(reduceBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount > 0) {
-            gameContainer.animal[i].amount -= 1
-            price[i].innerHTML = gameContainer.animal[i].amount;
-            gameContainer.totalAmount += 1;
-            coin.innerHTML = gameContainer.totalAmount;
+        if(betsite === "hello") {
+            return
+        }else {
+            if(reduceBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount > 0) {
+                gameContainer.animal[i].amount -= 1
+                price[i].innerHTML = gameContainer.animal[i].amount;
+                gameContainer.totalAmount += 1;
+                coin.innerHTML = gameContainer.totalAmount;
+            }
         }
     })
 }
 
+ function clearBetting () {
+    for(let i=0; i<gameContainer.animal; i++) {
+        gameContainer.animal[i].amount = 0;
+        price[i].innerHTML = gameContainer.animal[i].amount;
+    }
+ }
 
-// animal circle animation start +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const animalCircle = document.querySelectorAll(".img-container");
 
-let i=0
-setInterval(() => {
+
+ function  animationCircle () {
+    let gameIntervel = 0
+    let i=0;
+    let number = numberRandom(30,90)
+    if(gameIntervel !== 0) {
+        return
+    }
+    gameIntervel =setInterval(() => {
         if(!animalCircle[i].className.includes("animal-circle")) {
-                animalCircle[i].classList.add("animal-circle")
-                // animalCircle[i].classList.remove("animal-circle")
-            console.log(animalCircle[i])
+            animalCircle[i].classList.add("animal-circle")
         }
         if(i>0) {
             animalCircle[i-1].classList.remove("animal-circle")
         }
         i++
+        number--
         if(i>=32) {
-            animalCircle[i-1].classList.remove("animal-circle")
-            i=0
-
+        animalCircle[i-1].classList.remove("animal-circle")
+        i=0
+        number--
         }
-}, 100);
+        if(number == 0) {
+            clearInterval(gameIntervel)
+        }
+    }, 100);
+ }
+
+// animationCircle()
+
+function numberRandom (min, max ) {
+    return Math.floor(Math.random()*(max-min)) + min
+}
