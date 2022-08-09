@@ -31,7 +31,24 @@ const animalBtn = document.querySelectorAll(".image");
 const price = document.querySelectorAll(".amount");
 const reduceBtn = document.querySelectorAll (".reduceBtn");
 const coin = document.querySelector(".totalCoin");
-const resultWin = document.getElementsByClassName("win")
+const resultWin = document.getElementsByClassName("win");
+
+//welcome section======================================================
+const welcome = document.querySelector(".game__welcome")
+const welcomePlay = document.getElementById("welcomePlay");
+const gameSection = document.querySelector(".game__container");
+
+welcomePlay.addEventListener("click", function () {
+    console.log("hello")
+    welcome.style.display = "none";
+    gameSection.style.display = "flex"
+})
+
+
+//user coin==========================================================================================
+// window.localStorage.setItem("totalWin", "600");
+// const totalWin = localStorage.getItem("totalWin");
+// let userCoin = Number(totalWin)
 
 let count = 15;
 let timerId = 0;
@@ -89,8 +106,8 @@ function countingStop () {
 
 const stopBtn = document.querySelector(".stop-btn");
 stopBtn.addEventListener("click", function () {
-    clearBetting()
-    return countingStop()
+    clearBetting();
+    return countingStop();
 })
 
 // game container +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -246,9 +263,7 @@ for(let i=0; i<animalBtn.length; i++) {
     for(let i=0; i<animalBtn.length; i++) {
         gameContainer.animal[i].amount = 0;
         price[i].innerHTML = gameContainer.animal[i].amount;
-        gameContainer.totalAmount = 600
-        coin.innerHTML = gameContainer.totalAmount;
-        gameContainer.totalBet = 0
+        coin.innerText = gameContainer.totalAmount;
     }
  }
 
@@ -320,5 +335,4 @@ function winOrLose (x) {
             console.log("you lose")
         }
     }
-    clearBetting();
 }
