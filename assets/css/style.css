@@ -1,5 +1,7 @@
 @import url(./reset.css);
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Montserrat:ital,wght@1,300&family=Open+Sans:wght@300&family=Quicksand:wght@300&family=Raleway:wght@100&family=Roboto:wght@100;300;400;500&display=swap');
+@import url(./count.css);
+
 
 html {
     font-family: 'Roboto', sans-serif;
@@ -188,7 +190,7 @@ body {
 }
 .btnGroup{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 65%;
 }
@@ -539,7 +541,7 @@ body {
     bottom: 79.2%;
 }
 
-.count-down {
+/* .count-down {
     color: #fff;
     top: 50%;
     right: 50%;
@@ -556,7 +558,7 @@ body {
     100% {
         transform: scale(1);
     }
-}
+} */
 
 .game__container-center-bottom {
     width: 100%;
@@ -655,11 +657,11 @@ body {
     background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     align-items: center;
-    gap : 5px
+    gap : 11px
 }
 
 .box-amount-item:nth-child(1) {
-    margin-left: 9px;
+    margin-left: 10px;
 }
 
 .box-amount-item {
@@ -682,8 +684,8 @@ body {
 .game__container-right .btn-box{
     padding: 0px;
     width: 50%;
-    height: 12.3%;
-    margin-left: 54%;
+    height: 13.4%;
+    margin-left: 51%;
 }
 .game__container-right .btn-box .rotate{
     height: 100%;
@@ -692,22 +694,16 @@ body {
     display: flex;
     padding: 0px;
     width: 100%;
-    height: 14%;
+    height: 13.4%;
 }
 
 .game__container-right .btn img{
     height: 100%;
 }
 
-.start-btn {
-    background: none;
-    outline: none;
-    border: none;
-}
-
 .game__container-right .btn .image1 {
-    margin-left: 2rem;
-    margin-right: 2.5rem;
+    margin-left: 3rem;
+    margin-right: 1.5rem;
 }
 
 .game__container-right .get-coin{
@@ -734,4 +730,114 @@ body {
 
 #audioTimer {
     display: none;
+}
+
+#click {
+    display: none;
+}
+
+#spanWheel {
+    display: none;
+}
+
+#clock {
+    display: none;
+}
+
+#clockAlarm {
+    display: none;
+}
+
+@media (min-width:1400px) {
+    .container{
+        min-width: 1400px;
+        min-height: 840px;
+    }
+
+    .game__container-center-top {
+        height: 77%;
+    }
+
+    .game__container-center-bottom {
+        margin-top: 1.6rem;
+    }
+
+    .game__container-center-bottom-item1 {
+        margin-left: 1rem;
+        gap: 1rem;
+    }
+
+    .game__container-center-bottom-item1 p {
+        font-size: 1.2rem;
+    }
+
+    .game__container-center-bottom-item1 span {
+        font-size: 1.2rem;
+        padding: 6px 12px;
+    }
+
+    .game__container-center-bottom-item2 {
+        width: 26%;
+        gap: 0.5rem;
+        margin-right: 0.3rem;
+    }
+
+    .game__container-center-bottom-item2 p {
+        font-size: 1.2rem;
+
+    }
+    .game__container-center-bottom-item2-price {
+        width: 80px;
+    }
+
+    .game__container-center-bottom-item2-price span {
+        font-size: 1.2rem;
+    }
+
+    .box-amount {
+        gap: 0.5rem;
+    }
+
+    .box-amount-item {
+        margin-left: 1rem;
+    }
+
+    .game__container-right .btn-box {
+        height: 13.4%;
+        margin-left: 46%;
+    }
+
+    .game__container-right .btn {
+        height: 13.4%;
+    }
+
+    .game__container-right .btn .image1 {
+        margin: 0.7rem 2rem 0 3rem;
+    }
+    .game__container-right .btn img:nth-child(2) {
+        margin-top: 0.7rem;
+    }
+
+    .game__container-right .get-coin {
+        margin-top: 1.8rem;
+        height: 67px;
+    }
+
+    .game__container-right .get-coin img {
+        width: 17%;
+    }
+
+    .game__container-right .get-coin span {
+        font-size: 1.8rem;
+    }
+
+    .left__circle {
+        left: 23px;
+        gap: 2rem;
+    }
+
+    .right__circle {
+        right: 23px;
+        gap: 2rem;
+    }
 }

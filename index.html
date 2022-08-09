@@ -17,7 +17,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/dog.png" alt="" id="dog">
-                                <div class="reduceBtn" id="dog"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="dog"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="dog-amount" class="amount">0</span></section>
@@ -27,7 +27,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/elephant.png" alt="" id="elephant">
-                                <div class="reduceBtn" id="elephant"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="elephant"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span  id="elephant-amount" class="amount">0</span></section>
@@ -37,7 +37,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/sheep.png" alt="" id="sheep">
-                                <div class="reduceBtn" id="sheep"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="sheep"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span  id="sheep-amount" class="amount">0</span></section>
@@ -47,7 +47,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/monkey.png" alt="" id="monkey">
-                                <div class="reduceBtn" id="monkey"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="monkey"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="monkey-amount" class="amount">0</span></section>
@@ -60,7 +60,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/jellyfish.png" alt="" id="jellyfish">
-                                <div class="reduceBtn" id="jellyfish"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="jellyfish"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="jellyfish-amount" class="amount">0</span></section>
@@ -70,7 +70,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/shark.png" alt="" id="shark">
-                                <div class="reduceBtn" id="shark"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="shark"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="shark-amount" class="amount">0</span></section>
@@ -80,7 +80,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/seahorse.png" alt="" id="seahorse">
-                                <div class="reduceBtn" id="seahorse"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="seahorse"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="seahorse-amount" class="amount">0</span></section>
@@ -90,7 +90,7 @@
                         <div class="box">
                             <div class="btnGroup">
                                 <img class="animalCircleImg image" src="./assets/images/round-buttons/dolphin.png" alt="" id="dolphin">
-                                <div class="reduceBtn" id="dolphin"><i class="fa-solid fa-caret-down"></i></div>
+                                <!-- <div class="reduceBtn" id="dolphin"><i class="fa-solid fa-caret-down"></i></div> -->
                             </div>
                             <div class="amountField">
                                 <section class="myValue"><span id="dolphin-amount" class="amount">0</span></section>
@@ -324,11 +324,15 @@
                                 alt="monkey(left side).png" class="monkey">
                             </div>
                         </div>
-
-
-                         <div class="count-down">
-                            
-                         </div>
+                        <div class="time">
+                            <div class="circle">
+                                <svg>
+                                    <circle cx="70" cy="70" r="70"></circle>
+                                    <circle cx="70" cy="70" r="70" id="ss"></circle>
+                                </svg>
+                                <div id="second">00</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="game__container-center-bottom">
                         <div class="game__container-center-bottom-item1">
@@ -343,7 +347,7 @@
                         <div class="game__container-center-bottom-item2">
                             <p>WIN</p>
                             <div class="game__container-center-bottom-item2-price">
-                                <span>0</span>
+                                <span class="win">0</span>
                             </div>
                         </div>
                         <div class="game__container-center-bottom-item2">
@@ -369,7 +373,7 @@
                                 </span>
                             </section>
                         </div>
-                        <div class="reduceBtn" id="tortoise"><i class="fa-solid fa-caret-down"></i></div>
+                        <!-- <div class="reduceBtn" id="tortoise"><i class="fa-solid fa-caret-down"></i></div> -->
                     </div>
                     <div class="box">
                         <img class="animalCircleImg image" src="./assets/images/round-buttons/whale.png" alt="" id="whale">
@@ -377,7 +381,7 @@
                             <section class="box-amount-item"><span id="whale-amount" class="amount">0</span></section>
                             <section class="box-amount-item"><span>50</span></section>
                         </div>
-                        <div class="reduceBtn" id="whale"><i class="fa-solid fa-caret-down"></i></div>
+                        <!-- <div class="reduceBtn" id="whale"><i class="fa-solid fa-caret-down"></i></div> -->
                     </div>
                     <div class="box">
                         <img class="animalCircleImg image" src="./assets/images/round-buttons/land.png" alt="" id="land">
@@ -385,7 +389,7 @@
                             <section class="box-amount-item"><span id="land-amount" class="amount">0</span></section>
                             <section class="box-amount-item"><span>50</span></section>
                         </div>
-                        <div class="reduceBtn" id="land"><i class="fa-solid fa-caret-down"></i></div>
+                        <!-- <div class="reduceBtn" id="land"><i class="fa-solid fa-caret-down"></i></div> -->
                     </div>
                     <div class="box">
                         <img class="animalCircleImg image" src="./assets/images/round-buttons/sea.png" alt="" id="sea">
@@ -393,7 +397,7 @@
                             <section class="box-amount-item"><span id="sea-amount" class="amount">0</span></section>
                             <section class="box-amount-item"><span>50</span></section>
                         </div>
-                        <div class="reduceBtn" id="sea"><i class="fa-solid fa-caret-down"></i></div>
+                        <!-- <div class="reduceBtn" id="sea"><i class="fa-solid fa-caret-down"></i></div> -->
                     </div>
                     <div class="btn-box">   
                         <img class="rotate" src="./assets/images/btn/rotate.png" alt="">
@@ -434,6 +438,34 @@
           Your browser does not support the
           <code>audio</code> element.
   </audio>
-    <script async src="./index.js"></script>
+  <audio
+  controls
+  src="./assets/audios/Click.mp3" id="click">
+      Your browser does not support the
+      <code>audio</code> element.
+</audio>
+
+<audio
+controls
+src="./assets/audios/Slot Reel Spin Melody.wav" id="spanWheel">
+    Your browser does not support the
+    <code>audio</code> element.
+</audio>
+
+<audio
+controls
+src="./assets/audios/Tick Tock Clock Timer 03.mp3" id="clock">
+    Your browser does not support the
+    <code>audio</code> element.
+</audio>
+
+<audio
+controls
+src="./assets/audios/Mountain Audio - Electronic Clock Timer 2 - Sound 1.mp3" id="clockAlarm">
+    Your browser does not support the
+    <code>audio</code> element.
+</audio>
+
+    <script src="./index.js"></script>
 </body>
 </html>

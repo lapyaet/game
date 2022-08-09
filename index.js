@@ -1,46 +1,76 @@
 
 //audio function+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-function playAlarm() {
-    alarm.play()
+function playAlarm(a) {
+    a.play()
 }
 
-function stopAlarm () {
-    alarm.pause()
+function stopAlarm (a) {
+    a.pause()
 }
 
-const countDown = document.querySelector(".count-down")
-const alarm = document.getElementById("audioTimer");
+document.querySelector(".container").addEventListener ("click", function () {
+    playAlarm(click);
+})
+
+
+
+const countDown = document.querySelector(".circle");
+let second = document.getElementById("second");
+let ss = document.getElementById("ss");
+
+// audio ==============================================================
+const sound = document.getElementById("audioTimer");
+const clock = document.getElementById("clock");
+const clockAlarm = document.getElementById("clockAlarm")
+const click = document.getElementById("click");
+const spanWheel = document.getElementById("spanWheel");
+//audio ===============================================================
+
 const animalCircle = document.querySelectorAll(".img-container");
 const animalBtn = document.querySelectorAll(".image");
 const price = document.querySelectorAll(".amount");
 const reduceBtn = document.querySelectorAll (".reduceBtn");
-const coin = document.querySelector(".totalCoin")
+const coin = document.querySelector(".totalCoin");
+const resultWin = document.getElementsByClassName("win")
 
-let count = 10;
+let count = 15;
 let timerId = 0;
 
+playAlarm(sound);
 //Start count +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const startBtn = document.querySelector(".start-btn")
 startBtn.addEventListener("click", ()=> {
-    playAlarm()
+    stopAlarm(sound)
+    playAlarm(clock);
     countDown.style.display = "block"
     if(timerId !== 0) {
         return
     }
     timerId = setInterval(function () {
         count--
-        countDown.textContent = count
-        betsite = "hi"
+        let s = count
+        s = (s <10)? "0" + s : s;
+        second.innerText = s
+        betsite = "hi";
+        if(count <9) {
+            stopAlarm(clock);
+            playAlarm(clockAlarm);
+            second.style.color = "red"
+            ss.style.stroke = "red"
+        }
         if(count === 0) {
-            countDown.innerHTML = "GO"            
+            second.innerText = "GO"            
         }
         if(count < 0) {
+            second.style.color = "aliceblue"
+            ss.style.stroke = "#04fc04"
             betsite = "hello"
-            stopAlarm()
-            clearInterval(timerId)
+            stopAlarm(clockAlarm);
+            clearInterval(timerId);
             animationCircle()
             return countingStop ()
         }
+        ss.style.strokeDashoffset = 440 - (440 * count) / 30
     },1000)
     
 
@@ -50,8 +80,8 @@ function countingStop () {
     clearInterval(timerId);
     timerId = 0;
     count = 30;
-    countDown.innerHTML = count;
-    stopAlarm()
+    second.innerText = count;
+    stopAlarm(clockAlarm);
     countDown.style.display = "none"
 }
 
@@ -59,7 +89,7 @@ function countingStop () {
 
 const stopBtn = document.querySelector(".stop-btn");
 stopBtn.addEventListener("click", function () {
-    console.log("hello")
+    clearBetting()
     return countingStop()
 })
 
@@ -119,7 +149,42 @@ const gameContainer = {
     totalBet : 0,
 }
 
+const array = [
+  
+       "tortoise",
+       "dog",
+       "dog",
+       "dog",
+       "whale",
+       "jellyfish",
+       "jellyfish",
+       "jellyfish",
+       "tortoise",
+       "shark",
+        "shark",
+        "shark",
+        "whale",
+        "seahorse",
+        "seahorse",
+        "seahorse",
+        "tortoise",
+        "dolphin",
+        "dolphin",
+        "dolphin",
+        "whale",
+        "elephant",
+        "elephant",
+        "elephant",
+        "tortoise",
+        "sheep",
+        "sheep",
+        "sheep",
+        "whale",
+        "monkey",
+       "monkey",
+        "monkey"
 
+]
 
 // const dogBtn = document.getElementById("dog");
 
@@ -157,29 +222,33 @@ for(let i=0; i<animalBtn.length; i++) {
                 price[i].innerHTML = gameContainer.animal[i].amount;
                 gameContainer.totalAmount -= 1;
                 coin.innerHTML = gameContainer.totalAmount;
+                gameContainer.totalBet += 1
             }
         }
-        totalBetAmount()
     })
 
-    reduceBtn[i].addEventListener ("click", function () {
-        if(betsite === "hello") {
-            return
-        }else {
-            if(reduceBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount > 0) {
-                gameContainer.animal[i].amount -= 1
-                price[i].innerHTML = gameContainer.animal[i].amount;
-                gameContainer.totalAmount += 1;
-                coin.innerHTML = gameContainer.totalAmount;
-            }
-        }
-    })
+    // reduceBtn[i].addEventListener ("click", function () {
+    //     if(betsite === "hello") {
+    //         return
+    //     }else {
+    //         if(reduceBtn[i].id === gameContainer.animal[i].name && gameContainer.animal[i].amount > 0) {
+    //             gameContainer.animal[i].amount -= 1
+    //             price[i].innerHTML = gameContainer.animal[i].amount;
+    //             gameContainer.totalAmount += 1;
+    //             coin.innerHTML = gameContainer.totalAmount;
+    //             gameContainer.totalBet -= 1
+    //         }
+    //     }
+    // })
 }
 
  function clearBetting () {
-    for(let i=0; i<gameContainer.animal; i++) {
+    for(let i=0; i<animalBtn.length; i++) {
         gameContainer.animal[i].amount = 0;
         price[i].innerHTML = gameContainer.animal[i].amount;
+        gameContainer.totalAmount = 600
+        coin.innerHTML = gameContainer.totalAmount;
+        gameContainer.totalBet = 0
     }
  }
 
@@ -193,8 +262,10 @@ for(let i=0; i<animalBtn.length; i++) {
         return
     }
     gameIntervel =setInterval(() => {
+        playAlarm(spanWheel)
         if(!animalCircle[i].className.includes("animal-circle")) {
-            animalCircle[i].classList.add("animal-circle")
+            animalCircle[i].classList.add("animal-circle");
+
         }
         if(i>0) {
             animalCircle[i-1].classList.remove("animal-circle")
@@ -204,10 +275,17 @@ for(let i=0; i<animalBtn.length; i++) {
         if(i>=32) {
         animalCircle[i-1].classList.remove("animal-circle")
         i=0
-        number--
         }
         if(number == 0) {
+            stopAlarm(spanWheel)
             clearInterval(gameIntervel)
+            setTimeout (() => {
+                winOrLose(i-1)
+            },5000) 
+
+            setTimeout(() => {
+                playAlarm(sound)
+            },7000)
         }
     }, 100);
  }
@@ -216,4 +294,31 @@ for(let i=0; i<animalBtn.length; i++) {
 
 function numberRandom (min, max ) {
     return Math.floor(Math.random()*(max-min)) + min
+}
+
+function winOrLose (x) {
+    let win = 0
+    let totalWin = 0;
+    for(let i=0; i<gameContainer.animal.length; i++){
+
+        if( gameContainer.animal[i].name === array[x]) {
+            console.log(array[x])
+            console.log(gameContainer.animal)
+            win = gameContainer.animal[i].amount * 3;
+            console.log(win);
+            console.log(gameContainer.totalBet);
+            totalWin = win - gameContainer.totalBet;
+            console.log(totalWin)
+        }
+
+        if(totalWin > 0) {
+            totalWin.innerText = totalWin;
+            console.log("you win")
+        }else if(totalWin === 0) {
+            console.log("draw")
+        }else {
+            console.log("you lose")
+        }
+    }
+    clearBetting();
 }
