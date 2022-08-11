@@ -37,11 +37,14 @@ const resultWin = document.getElementsByClassName("win");
 const welcome = document.querySelector(".game__welcome")
 const welcomePlay = document.getElementById("welcomePlay");
 const gameSection = document.querySelector(".game__container");
+const welcomeLoading = document.querySelector(".loading__container")
 
 welcomePlay.addEventListener("click", function () {
-    console.log("hello")
-    welcome.style.display = "none";
-    gameSection.style.display = "flex"
+    welcomeLoading.style.display = "block";
+    setTimeout (()=>{
+        welcome.style.display = "none";
+        gameSection.style.display = "flex";
+    },4000) 
 })
 
 
@@ -50,7 +53,7 @@ welcomePlay.addEventListener("click", function () {
 // const totalWin = localStorage.getItem("totalWin");
 // let userCoin = Number(totalWin)
 
-let count = 15;
+let count = 30;
 let timerId = 0;
 
 playAlarm(sound);
@@ -98,6 +101,7 @@ function countingStop () {
     timerId = 0;
     count = 30;
     second.innerText = count;
+    stopAlarm(clock);
     stopAlarm(clockAlarm);
     countDown.style.display = "none"
 }
@@ -105,11 +109,29 @@ function countingStop () {
 //stop-btn+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const stopBtn = document.querySelector(".stop-btn");
+const refersh = document.querySelector(".rotate");
+
+
 stopBtn.addEventListener("click", function () {
+    if(gameIntervel) {
+        return;
+    }
+    gameContainer.totalAmount += gameContainer.totalBet;
+    if(gameContainer.totalBet > 0) {
+        gameContainer.totalBet = 0
+    }
+    betsite = "hello"
     clearBetting();
     return countingStop();
 })
 
+refersh.addEventListener("click", function () {
+    gameContainer.totalAmount += gameContainer.totalBet;
+    if(gameContainer.totalBet > 0) {
+        gameContainer.totalBet = 0
+    }
+    clearBetting();
+})
 // game container +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const gameContainer = {
@@ -295,12 +317,14 @@ for(let i=0; i<animalBtn.length; i++) {
             stopAlarm(spanWheel)
             clearInterval(gameIntervel)
             setTimeout (() => {
-                winOrLose(i-1)
-            },5000) 
+                winOrLose(i-1);
+                gameContainer.totalBet = 0
+                clearBetting();
+            },3000) 
 
             setTimeout(() => {
                 playAlarm(sound)
-            },7000)
+            },4000)
         }
     }, 100);
  }
@@ -317,22 +341,38 @@ function winOrLose (x) {
     for(let i=0; i<gameContainer.animal.length; i++){
 
         if( gameContainer.animal[i].name === array[x]) {
-            console.log(array[x])
-            console.log(gameContainer.animal)
-            win = gameContainer.animal[i].amount * 3;
-            console.log(win);
-            console.log(gameContainer.totalBet);
-            totalWin = win - gameContainer.totalBet;
-            console.log(totalWin)
+            win = gameContainer.animal[i].amount * 5;
+        }else if(array[x] === gameContainer.animal[0] .name||
+                array[x] === gameContainer.animal[1].name||
+                array[x] === gameContainer.animal[2].name||
+                array[x] === gameContainer.animal[3].name) {
+                    win = gameContainer.animal[10].amount * 2;
+                    console.log(win);
+                    coin.innerText = gameContainer.totalAmount;
+        }else if(array[x] === gameContainer.animal[4] .name||
+                 array[x] === gameContainer.animal[5].name||
+                 array[x] === gameContainer.animal[6].name||
+                 array[x] === gameContainer.animal[7].name) {
+                    win = gameContainer.animal[11].amount * 2;
+                    console.log(win);
+                    // totalWin = win - gameContainer.totalBet;
+                    // gameContainer.totalAmount += win;
         }
-
-        if(totalWin > 0) {
-            totalWin.innerText = totalWin;
-            console.log("you win")
-        }else if(totalWin === 0) {
-            console.log("draw")
-        }else {
-            console.log("you lose")
-        }
+    }
+    totalWin = win - gameContainer.totalBet;
+    gameContainer.totalAmount += win;
+    coin.innerText = gameContainer.totalAmount;
+    console.log(win)
+    console.log(gameContainer.totalAmount);
+    
+    if(totalWin > 0) {
+        resultWin.innerText = totalWin;
+        return alert("You Win")
+    }else if(totalWin === 0) {
+        console.log("draw");
+        return alert("Draw")
+    }else {
+        console.log("you lose");
+        return alert("You Lose");
     }
 }

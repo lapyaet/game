@@ -143,6 +143,51 @@
     height: auto;
 }
 
+.loading__container {
+    width: 100%;
+    position: absolute;
+    bottom: 15%;
+    display: none;
+}
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.loading h1 {
+    font-size: 1.5rem;
+    color: #FFCB00;
+    text-align: center;
+    margin-right: 4.5rem;
+    margin-bottom: 0.8rem;
+    text-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.loading .line-box {
+    width: 50%;
+    height: 15px;
+    background-color: #1d2630;
+    margin-right: 4rem;
+    border-radius: 20px;
+    border: 2px solid #267591;
+}
+
+.loading .line-box .line {
+    height: 15px;
+    border-radius: 20px;
+    background-color: #67d295;
+    animation: loading 3s forwards cubic-bezier(0,0,0,0);
+}
+
+@keyframes loading {
+    0%  {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
 @media (min-width:1400px) {
     .game__welcome-top-item2-name-left {
         gap: 6px;
@@ -159,5 +204,9 @@
     .game__welcome-top-item2-coin p {
         font-size: 2.5rem;
         letter-spacing: 3px;
+    }
+
+    .loading h1 {
+        margin-right: 6.5rem;
     }
 }
