@@ -2,7 +2,7 @@
 .game__welcome {
     width: 100%;
     height: 100%;
-    background-image: url(../images/menu-board/menu\ board\ \(1\).png);
+    background-image: url(../images/menu-board/processed-057daf40-fd87-4482-8246-f6a08de38dd7_9pNX3tMT.jpg);
     background-size: cover;
     border-radius: 45px;
     cursor: pointer;
@@ -29,6 +29,11 @@
 .game__welcome-top-item1 img {
     height: 45%;
     width: auto;
+    transition: 0.3s ease-in;
+}
+
+.game__welcome-top-item1 img:hover {
+    transform:translateX(-10%);
 }
 
 .game__welcome-top-item2 {
@@ -141,6 +146,11 @@
 .game__welcome-center img {
     width: 28%;
     height: auto;
+    transition: 0.3s all;
+}
+
+.game__welcome-center img:hover {
+    transform: scale(0.8);
 }
 
 .loading__container {

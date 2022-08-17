@@ -207,12 +207,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 65%;
+    height: 67%;
 }
 .animalCircleImg{
-    width: 65%;
+    width: 70%;
     height: 100%;
     cursor: pointer;
+    transition: 0.3s all;
 }
 .reduceBtn{
     width: 30%;
@@ -259,6 +260,10 @@ body {
     border-end-end-radius: 5px;
     border-start-start-radius: 2.5px;
     border-end-start-radius: 2.5px;
+}
+
+.myValue span, .maxValue span {
+    margin-right: 4px;
 }
 
 .game__container-center {
@@ -375,7 +380,7 @@ body {
 .game__container-center-top .img10 {
     position: absolute;
     width: 10.5%;
-    width: 10.5%;
+    height: 10.5%;
     right: 0;
     top: 10.6%;
 }
@@ -665,18 +670,22 @@ body {
 }
 
 .box-amount {
-    width: 100%;
-    height: 80%;
+    width: 52%;
+    height: 65%;
     border-radius: 8px;
     display: flex;
     background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     align-items: center;
-    gap : 11px
+    gap : 8px
 }
 
 .box-amount-item:nth-child(1) {
-    margin-left: 10px;
+    margin-left: 8px;
+}
+
+.box-amount-item:nth-child(2) {
+    margin-right: 8px;
 }
 
 .box-amount-item {
@@ -704,7 +713,13 @@ body {
 }
 .game__container-right .btn-box .rotate{
     height: 100%;
+    transition: 0.3s all;
 }
+
+.btn-box .rotate:hover {
+    transform: scale(0.8);
+}
+
 .game__container-right .btn{
     display: flex;
     padding: 0px;
@@ -714,6 +729,11 @@ body {
 
 .game__container-right .btn img{
     height: 100%;
+    transition: 0.3s all;
+}
+
+.btn img:hover {
+    transform: scale(0.8);
 }
 
 .game__container-right .btn .image1 {
@@ -763,10 +783,60 @@ body {
     display: none;
 }
 
+.animalCircleImg:hover {
+    transform: scale(1.1);
+}
+
+.animalCircleImg:active {
+    transform: scale(0.9);
+}
+
+.winOrLose {
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    animation: win 1s ease-in-out;
+    display: none;
+}
+
+@keyframes win {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.winOrLose h3, .winOrLose h5, .winOrLose p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffe600, #ff7b01);
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 @media (min-width:1400px) {
     .container{
-        min-width: 1400px;
-        min-height: 840px;
+        min-width: 1200px;
+        min-height: 800px;
+    }
+
+    .btnGroup {
+        height: 70%;
+    }
+
+    .animalCircleImg {
+        width: 74%;
     }
 
     .game__container-center-top {
@@ -777,49 +847,44 @@ body {
         margin-top: 1.6rem;
     }
 
-    .game__container-center-bottom-item1 {
-        margin-left: 1rem;
-        gap: 1rem;
-    }
-
     .game__container-center-bottom-item1 p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .game__container-center-bottom-item1 span {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         padding: 6px 12px;
     }
 
     .game__container-center-bottom-item2 {
         width: 26%;
-        gap: 0.5rem;
+        gap: 0.3rem;
         margin-right: 0.3rem;
     }
 
+    .box-amount-item:nth-child(1) {
+        margin-left: 10px;
+    }
+
     .game__container-center-bottom-item2 p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
 
     }
     .game__container-center-bottom-item2-price {
-        width: 80px;
+        width: 75px;
     }
 
     .game__container-center-bottom-item2-price span {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .box-amount {
         gap: 0.5rem;
     }
 
-    .box-amount-item {
-        margin-left: 1rem;
-    }
-
     .game__container-right .btn-box {
-        height: 13.4%;
-        margin-left: 46%;
+        height: 14%;
+        margin-left: 52%;
     }
 
     .game__container-right .btn {
@@ -827,14 +892,14 @@ body {
     }
 
     .game__container-right .btn .image1 {
-        margin: 0.7rem 2rem 0 3rem;
+        margin: 0.3rem 2rem 0 3rem;
     }
     .game__container-right .btn img:nth-child(2) {
-        margin-top: 0.7rem;
+        margin-top: 0.3rem;
     }
 
     .game__container-right .get-coin {
-        margin-top: 1.8rem;
+        margin-top: 1.4rem;
         height: 67px;
     }
 
@@ -847,12 +912,12 @@ body {
     }
 
     .left__circle {
-        left: 23px;
+        left: 16px;
         gap: 2rem;
     }
 
     .right__circle {
-        right: 23px;
+        right: 16px;
         gap: 2rem;
     }
 }

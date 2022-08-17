@@ -40,6 +40,7 @@ const gameSection = document.querySelector(".game__container");
 const welcomeLoading = document.querySelector(".loading__container")
 
 welcomePlay.addEventListener("click", function () {
+    playAlarm(sound);
     welcomeLoading.style.display = "block";
     setTimeout (()=>{
         welcome.style.display = "none";
@@ -47,16 +48,16 @@ welcomePlay.addEventListener("click", function () {
     },4000) 
 })
 
+// winOrLose section==================================================================================
+const calculateWin = document.querySelector(".winOrLose");
+const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
+const winOrLoseText = document.querySelector(".winOrLoseText");
+const result = document.querySelector(".result");
 
-//user coin==========================================================================================
-// window.localStorage.setItem("totalWin", "600");
-// const totalWin = localStorage.getItem("totalWin");
-// let userCoin = Number(totalWin)
-
-let count = 30;
+let count = 10;
 let timerId = 0;
 
-playAlarm(sound);
+
 //Start count +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const startBtn = document.querySelector(".start-btn")
 startBtn.addEventListener("click", ()=> {
@@ -86,9 +87,20 @@ startBtn.addEventListener("click", ()=> {
             ss.style.stroke = "#04fc04"
             betsite = "hello"
             stopAlarm(clockAlarm);
-            clearInterval(timerId);
-            animationCircle()
-            return countingStop ()
+            let random = numberRandom (32);
+            gameIntervel = 0
+            animationCircle(100,null);
+                setTimeout(() => {
+                    clearInterval(gameIntervel);
+                    gameIntervel = 0;
+                    animationCircle(200, null);
+                },3000)
+                setTimeout(() => {
+                    clearInterval(gameIntervel);
+                    gameIntervel = 0;
+                    animationCircle(350, random);
+                },5000)
+            countingStop ()
         }
         ss.style.strokeDashoffset = 440 - (440 * count) / 30
     },1000)
@@ -99,7 +111,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 30;
+    count = 5;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -290,11 +302,10 @@ for(let i=0; i<animalBtn.length; i++) {
  }
 
 
-
- function  animationCircle () {
-    let gameIntervel = 0
-    let i=0;
-    let number = numberRandom(30,90)
+ let gameIntervel = 0;
+ let i=0;
+ function  animationCircle (x,random) {
+    let number = random
     if(gameIntervel !== 0) {
         return
     }
@@ -319,20 +330,30 @@ for(let i=0; i<animalBtn.length; i++) {
             setTimeout (() => {
                 winOrLose(i-1);
                 gameContainer.totalBet = 0
+                let gameId = setInterval (function () {
+                    if(!animalCircle[i-1].className.includes("animal-circle")) {
+                        animalCircle[i-1].classList.add("animal-circle");
+                    }else {
+                        animalCircle[i-1].classList.remove("animal-circle")
+                    }
+                },100)
+                setTimeout(function () {
+                    clearInterval(gameId)
+                    animalCircle[i-1].classList.remove("animal-circle")
+                },3000)
                 clearBetting();
             },3000) 
-
             setTimeout(() => {
                 playAlarm(sound)
+                i=0
             },4000)
         }
-    }, 100);
+    }, x);
  }
 
-// animationCircle()
 
-function numberRandom (min, max ) {
-    return Math.floor(Math.random()*(max-min)) + min
+function numberRandom (ran) {
+    return Math.floor(Math.random()* ran)
 }
 
 function winOrLose (x) {
@@ -341,25 +362,28 @@ function winOrLose (x) {
     for(let i=0; i<gameContainer.animal.length; i++){
 
         if( gameContainer.animal[i].name === array[x]) {
-            win = gameContainer.animal[i].amount * 5;
+            win += gameContainer.animal[i].amount * 5;
+            console.log("winwin-"+ win)
         }else if(array[x] === gameContainer.animal[0] .name||
                 array[x] === gameContainer.animal[1].name||
                 array[x] === gameContainer.animal[2].name||
                 array[x] === gameContainer.animal[3].name) {
-                    win = gameContainer.animal[10].amount * 2;
+                    win += gameContainer.animal[10].amount * 2;
                     console.log(win);
                     coin.innerText = gameContainer.totalAmount;
         }else if(array[x] === gameContainer.animal[4] .name||
                  array[x] === gameContainer.animal[5].name||
                  array[x] === gameContainer.animal[6].name||
                  array[x] === gameContainer.animal[7].name) {
-                    win = gameContainer.animal[11].amount * 2;
+                    win += gameContainer.animal[11].amount * 2;
                     console.log(win);
                     // totalWin = win - gameContainer.totalBet;
                     // gameContainer.totalAmount += win;
         }
     }
+    console.log("win"+ win)
     totalWin = win - gameContainer.totalBet;
+    console.log("total"+ totalWin)
     gameContainer.totalAmount += win;
     coin.innerText = gameContainer.totalAmount;
     console.log(win)
@@ -367,12 +391,28 @@ function winOrLose (x) {
     
     if(totalWin > 0) {
         resultWin.innerText = totalWin;
-        return alert("You Win")
+        calculateWin.style.display = "flex";
+        winOrLoseHeader.textContent = "Congratulation!";
+        winOrLoseText.textContent = "you win";
+        result.textContent = totalWin
+        setTimeout(function () {
+            calculateWin.style.display = "none"
+        },3000)
     }else if(totalWin === 0) {
-        console.log("draw");
-        return alert("Draw")
+        calculateWin.style.display = "flex";
+        winOrLoseHeader.textContent = "Ohh oh!";
+        winOrLoseText.textContent = "draw";
+        result.textContent = totalWin
+        setTimeout(function () {
+            calculateWin.style.display = "none"
+        },3000)
     }else {
-        console.log("you lose");
-        return alert("You Lose");
+        calculateWin.style.display = "flex";
+        winOrLoseHeader.textContent = "so sorry";
+        winOrLoseText.textContent = "You Lose";
+        result.textContent = totalWin;
+        setTimeout(function () {
+            calculateWin.style.display = "none"
+        },3000)
     }
 }
