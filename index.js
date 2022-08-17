@@ -54,7 +54,7 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 10;
+let count = 30;
 let timerId = 0;
 
 
@@ -111,7 +111,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 5;
+    count = 30;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
