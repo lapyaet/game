@@ -31,7 +31,7 @@ const animalBtn = document.querySelectorAll(".image");
 const price = document.querySelectorAll(".amount");
 const reduceBtn = document.querySelectorAll (".reduceBtn");
 const coin = document.querySelector(".totalCoin");
-const resultWin = document.getElementsByClassName("win");
+const resultWin = document.querySelector(".win");
 
 //welcome section======================================================
 const welcome = document.querySelector(".game__welcome")
@@ -380,6 +380,7 @@ function winOrLose (x) {
         if(array[x] === gameContainer.animal[0] .name||
                 array[x] === gameContainer.animal[1].name||
                 array[x] === gameContainer.animal[2].name||
+                array[x] === gameContainer.animal[8].name||
                 array[x] === gameContainer.animal[3].name) {
                     landWin = gameContainer.animal[10].amount * 2;
                     console.log("landWin-"+win);
@@ -388,6 +389,8 @@ function winOrLose (x) {
         if(array[x] === gameContainer.animal[4] .name||
                  array[x] === gameContainer.animal[5].name||
                  array[x] === gameContainer.animal[6].name||
+                 array[x] === gameContainer.animal[8].name||
+                 array[x] === gameContainer.animal[9].name||
                  array[x] === gameContainer.animal[7].name) {
                     seaWin = gameContainer.animal[11].amount * 2;
                     console.log(win);
@@ -411,6 +414,7 @@ function winOrLose (x) {
         winOrLoseText.textContent = "you win";
         result.textContent = totalWin
         setTimeout(function () {
+            resultWin.textContent = 0
             calculateWin.style.display = "none"
         },3000)
     }else if(totalWin === 0) {
