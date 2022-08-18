@@ -54,64 +54,68 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 10;
+let count = 30;
 let timerId = 0;
-
+let playPermission = true;
 
 //Start count +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const startBtn = document.querySelector(".start-btn")
 startBtn.addEventListener("click", ()=> {
-    stopAlarm(sound)
-    playAlarm(clock);
-    countDown.style.display = "block"
-    if(timerId !== 0) {
+    if(playPermission === false) {
         return
+    }else {
+        playPermission = false
+        stopAlarm(sound)
+        playAlarm(clock);
+        countDown.style.display = "block"
+        if(timerId !== 0) {
+            return
+        }
+        timerId = setInterval(function () {
+            count--
+            let s = count
+            s = (s <10)? "0" + s : s;
+            second.innerText = s
+            betsite = "hi";
+            if(count <9) {
+                stopAlarm(clock);
+                playAlarm(clockAlarm);
+                second.style.color = "red"
+                ss.style.stroke = "red"
+            }
+            if(count === 0) {
+                second.innerText = "GO"            
+            }
+            if(count < 0) {
+                second.style.color = "aliceblue"
+                ss.style.stroke = "#04fc04"
+                betsite = "hello"
+                countingStop ()
+                stopAlarm(clockAlarm);
+                let random = numberRandom (32);
+                refershPremission = false;
+                gameIntervel = 0
+                animationCircle(100,null);
+                    setTimeout(() => {
+                        clearInterval(gameIntervel);
+                        gameIntervel = 0;
+                        animationCircle(200, null);
+                    },3000)
+                    setTimeout(() => {
+                        clearInterval(gameIntervel);
+                        gameIntervel = 0;
+                        animationCircle(350, random);
+                    },5000)
+            }
+            ss.style.strokeDashoffset = 440 - (440 * count) / 30
+        },1000)
     }
-    timerId = setInterval(function () {
-        count--
-        let s = count
-        s = (s <10)? "0" + s : s;
-        second.innerText = s
-        betsite = "hi";
-        if(count <9) {
-            stopAlarm(clock);
-            playAlarm(clockAlarm);
-            second.style.color = "red"
-            ss.style.stroke = "red"
-        }
-        if(count === 0) {
-            second.innerText = "GO"            
-        }
-        if(count < 0) {
-            second.style.color = "aliceblue"
-            ss.style.stroke = "#04fc04"
-            betsite = "hello"
-            stopAlarm(clockAlarm);
-            let random = numberRandom (32);
-            gameIntervel = 0
-            animationCircle(100,null);
-                setTimeout(() => {
-                    clearInterval(gameIntervel);
-                    gameIntervel = 0;
-                    animationCircle(200, null);
-                },3000)
-                setTimeout(() => {
-                    clearInterval(gameIntervel);
-                    gameIntervel = 0;
-                    animationCircle(350, random);
-                },5000)
-            countingStop ()
-        }
-        ss.style.strokeDashoffset = 440 - (440 * count) / 30
-    },1000)
-    
-
 })
 
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 10;
+    count = 30;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -125,24 +129,31 @@ const refersh = document.querySelector(".rotate");
 
 
 stopBtn.addEventListener("click", function () {
-    if(gameIntervel) {
+    if(refershPremission === false) {
         return;
+    }else {
+        gameContainer.totalAmount += gameContainer.totalBet;
+        if(gameContainer.totalBet > 0) {
+            gameContainer.totalBet = 0
+        }
+        betsite = "hello"
+        clearBetting();
+        countingStop();
+        playPermission = true;
     }
-    gameContainer.totalAmount += gameContainer.totalBet;
-    if(gameContainer.totalBet > 0) {
-        gameContainer.totalBet = 0
-    }
-    betsite = "hello"
-    clearBetting();
-    return countingStop();
 })
 
+let refershPremission = true;
 refersh.addEventListener("click", function () {
-    gameContainer.totalAmount += gameContainer.totalBet;
-    if(gameContainer.totalBet > 0) {
-        gameContainer.totalBet = 0
+    if (refershPremission === false) {
+        return
+    }else {
+        gameContainer.totalAmount += gameContainer.totalBet;
+        if(gameContainer.totalBet > 0) {
+            gameContainer.totalBet = 0
+        }
+        clearBetting();
     }
-    clearBetting();
 })
 // game container +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -354,6 +365,8 @@ for(let i=0; i<animalBtn.length; i++) {
                 clearBetting();
             },3000) 
             setTimeout(() => {
+                refershPremission = true
+                playPermission = true
                 playAlarm(sound)
                 i=0
             },4000)
