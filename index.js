@@ -417,7 +417,6 @@ function winOrLose (x) {
     console.log("total"+ totalWin)
     gameContainer.totalAmount += win;
     coin.innerText = gameContainer.totalAmount;
-    console.log(win)
     console.log(gameContainer.totalAmount);
     
     if(totalWin > 0) {
