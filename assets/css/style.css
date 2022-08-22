@@ -604,13 +604,20 @@ body {
     font-size: 1rem;
 }
 
+.game__container-center-bottom-item1-price {
+    width: 50%;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .game__container-center-bottom-item1 span {
     font-weight: 600;
     color: #ff7b01;
     font-size: 0.9rem;
-    padding: 4px 3px;
-    background-color: #fff;
-    border-radius: 4px;
+    padding: 4px 4px 4px 0;
 }
 
 .game__container-center-bottom-item2 {
@@ -624,7 +631,6 @@ body {
     font-weight: 600;
     font-size: 1rem;
     color: #fff;
-
 }
 
 .game__container-center-bottom-item2-price {
@@ -856,9 +862,12 @@ body {
         font-size: 1.1rem;
     }
 
+    .game__container-center-bottom-item1-price {
+        width: 55%;
+    }
+
     .game__container-center-bottom-item1 span {
         font-size: 1.1rem;
-        padding: 6px 12px;
     }
 
     .game__container-center-bottom-item2 {

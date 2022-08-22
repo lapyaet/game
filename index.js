@@ -32,6 +32,8 @@ const price = document.querySelectorAll(".amount");
 const reduceBtn = document.querySelectorAll (".reduceBtn");
 const coin = document.querySelector(".totalCoin");
 const resultWin = document.querySelector(".win");
+const betAmount = document.querySelector(".bet-amount");
+const loseText = document.querySelector(".loseText")
 
 //welcome section======================================================
 const welcome = document.querySelector(".game__welcome")
@@ -162,49 +164,61 @@ const gameContainer = {
         {
             name : "dog",
             amount : 0,
-        },
-        {
-            name : "elephant",
-            amount : 0,
-        },
-        {
-            name : "sheep",
-            amount : 0,
+            betWin : 0
         },
         {
             name : "monkey",
             amount : 0,
+            betWin : 0
+        },
+        {
+            name : "sheep",
+            amount : 0,
+            betWin : 0
+        },
+        {
+            name : "elephant",
+            amount : 0,
+            betWin : 0
+        },
+        {
+            name : "seahorse",
+            amount : 0,
+            betWin : 0
         },
         {
             name : "jellyfish",
             amount : 0,
+            betWin : 0
+        },
+        {
+            name : "dolphin",
+            amount: 0,
+            betWin : 0
         },
         {
             name : "shark",
             amount : 0,
-        },
-        {
-            name : "seahorse",
-            amount: 0,
-        },
-        {
-            name : "dolphin",
-            amount : 0,
+            betWin : 0
         },{
             name : "tortoise",
             amount : 0,
+            betWin : 0
         },
         {
             name : "whale",
             amount : 0,
+            betWin : 0
         },
         {
             name : "land",
             amount : 0,
+            betWin : 0
         },
         {
             name : "sea",
-            amount:0
+            amount:0,
+            betWin : 0
         }
     ],
     totalAmount : 600,
@@ -217,21 +231,21 @@ const array = [
        "dog",
        "dog",
        "whale",
-       "jellyfish",
-       "jellyfish",
-       "jellyfish",
+       "seahorse",
+       "seahorse",
+       "seahorse",
        "tortoise",
-       "shark",
-        "shark",
-        "shark",
+       "jellyfish",
+        "jellyfish",
+        "jellyfish",
         "whale",
-        "seahorse",
-        "seahorse",
-        "seahorse",
+        "dolphin",
+        "dolphin",
+        "dolphin",
         "tortoise",
-        "dolphin",
-        "dolphin",
-        "dolphin",
+        "shark",
+        "shark",
+        "shark",
         "whale",
         "elephant",
         "elephant",
@@ -242,7 +256,7 @@ const array = [
         "sheep",
         "whale",
         "monkey",
-       "monkey",
+        "monkey",
         "monkey"
 ]
 
@@ -283,6 +297,7 @@ for(let i=0; i<animalBtn.length; i++) {
                 gameContainer.totalAmount -= 1;
                 coin.innerHTML = gameContainer.totalAmount;
                 gameContainer.totalBet += 1
+                betAmount.innerText = gameContainer.totalBet
             }
         }
     })
@@ -330,6 +345,7 @@ for(let i=0; i<animalBtn.length; i++) {
             animalCircle[31].classList.remove("animal-circle")
         }
         i++
+        console.log(i-1)
         number--
         if(i==32) {
         // animalCircle[i-1].classList.remove("animal-circle")
@@ -339,6 +355,7 @@ for(let i=0; i<animalBtn.length; i++) {
             stopAlarm(spanWheel)
             clearInterval(gameIntervel)
             setTimeout (() => {
+                console.log(i-1)
                 winOrLose(i-1);
                 gameContainer.totalBet = 0
                 setTimeout(function() {
@@ -380,38 +397,73 @@ function numberRandom (ran) {
 }
 
 function winOrLose (x) {
-    let landWin = 0;
-    let seaWin = 0
     let win = 0
     let totalWin = 0;
     for(let i=0; i<gameContainer.animal.length; i++){
 
-        if( gameContainer.animal[i].name === array[x]) {
-            win += gameContainer.animal[i].amount * 5;
-            console.log("winwin-"+ win)
+        if(array[x] === gameContainer.animal[0].name) {
+            gameContainer.animal[0].betWin = gameContainer.animal[0].amount * 4
         }
+
+        if(array[x] === gameContainer.animal[1].name) {
+            gameContainer.animal[1].betWin = gameContainer.animal[1].amount * 6
+        }
+
+        if(array[x] === gameContainer.animal[2].name) {
+            gameContainer.animal[2].betWin = gameContainer.animal[2].amount * 12
+        }
+
+        if(array[x] === gameContainer.animal[3].name) {
+            gameContainer.animal[3].betWin = gameContainer.animal[3].amount * 24
+        }
+
+        if(array[x] === gameContainer.animal[4].name) {
+            gameContainer.animal[4].betWin = gameContainer.animal[4].amount * 4
+        }
+
+        if(array[x]===gameContainer.animal[5].name) {
+            gameContainer.animal[5].betWin = gameContainer.animal[5].amount * 6
+        }
+
+        if(array[x]===gameContainer.animal[6].name) {
+            gameContainer.animal[6].betWin = gameContainer.animal[6].amount * 12
+        }
+
+        if(array[x]===gameContainer.animal[7].name) {
+            gameContainer.animal[7].betWin = gameContainer.animal[7].amount * 24
+        }
+
+        if(array[x]===gameContainer.animal[8].name) {
+            gameContainer.animal[8].betWin = gameContainer.animal[8].amount * 24
+        }
+
+        if(array[x]===gameContainer.animal[9].name) {
+            gameContainer.animal[9].betWin = gameContainer.animal[9].amount * 48
+        }
+
+        // if( gameContainer.animal[i].name === array[x]) {
+        //     win += gameContainer.animal[i].amount * 5;
+        //     console.log("winwin-"+ win)
+        // }
         if(array[x] === gameContainer.animal[0] .name||
                 array[x] === gameContainer.animal[1].name||
                 array[x] === gameContainer.animal[2].name||
-                array[x] === gameContainer.animal[8].name||
                 array[x] === gameContainer.animal[3].name) {
-                    landWin = gameContainer.animal[10].amount * 2;
+                    gameContainer.animal[10].betWin = gameContainer.animal[10].amount * 2;
                     console.log("landWin-"+win);
                     coin.innerText = gameContainer.totalAmount;
         }
         if(array[x] === gameContainer.animal[4] .name||
                  array[x] === gameContainer.animal[5].name||
                  array[x] === gameContainer.animal[6].name||
-                 array[x] === gameContainer.animal[8].name||
-                 array[x] === gameContainer.animal[9].name||
                  array[x] === gameContainer.animal[7].name) {
-                    seaWin = gameContainer.animal[11].amount * 2;
+                    gameContainer.animal[11].betWin = gameContainer.animal[11].amount * 2;
                     console.log(win);
                     // totalWin = win - gameContainer.totalBet;
                     // gameContainer.totalAmount += win;
         }
+        win += gameContainer.animal[i].betWin
     }
-    win += landWin + seaWin
     console.log("win"+ win)
     totalWin = win - gameContainer.totalBet;
     console.log("total"+ totalWin)
@@ -421,6 +473,8 @@ function winOrLose (x) {
     
     if(totalWin > 0) {
         resultWin.innerText = totalWin;
+        loseText.innerText = "Win";
+        loseText.style.color = "#fff"
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "Congratulation!";
         winOrLoseText.textContent = "you win";
@@ -438,12 +492,18 @@ function winOrLose (x) {
             calculateWin.style.display = "none"
         },60000)
     }else {
+        loseText.innerText = "Lose";
+        loseText.style.color = "#E93C24";
+        resultWin.innerText = totalWin
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "so sorry";
         winOrLoseText.textContent = "You Lose";
         result.textContent = totalWin;
         setTimeout(function () {
-            calculateWin.style.display = "none"
+            resultWin.innerText = 0;
+            calculateWin.style.display = "none";
+            loseText.innerText = "Win"
+            loseText.style.color = "#fff"
         },60000)
     }
 }
