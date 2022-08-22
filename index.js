@@ -92,7 +92,7 @@ startBtn.addEventListener("click", ()=> {
                 betsite = "hello"
                 countingStop ()
                 stopAlarm(clockAlarm);
-                let random = numberRandom (32);
+                let random = numberRandom (31);
                 refershPremission = false;
                 gameIntervel = 0
                 animationCircle(100,null);
@@ -428,7 +428,7 @@ function winOrLose (x) {
         setTimeout(function () {
             resultWin.textContent = 0
             calculateWin.style.display = "none"
-        },3000)
+        },60000)
     }else if(totalWin === 0) {
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "Ohh oh!";
@@ -436,7 +436,7 @@ function winOrLose (x) {
         result.textContent = totalWin
         setTimeout(function () {
             calculateWin.style.display = "none"
-        },3000)
+        },60000)
     }else {
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "so sorry";
@@ -444,6 +444,6 @@ function winOrLose (x) {
         result.textContent = totalWin;
         setTimeout(function () {
             calculateWin.style.display = "none"
-        },3000)
+        },60000)
     }
 }

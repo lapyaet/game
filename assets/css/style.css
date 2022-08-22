@@ -588,12 +588,11 @@ body {
     border-radius: 8px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .game__container-center-bottom-item1 {
     width: 39%;
-    margin-left: 0.5rem;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -615,10 +614,10 @@ body {
 }
 
 .game__container-center-bottom-item2 {
-    width: 29%;
+    width: 26%;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
 }
 
 .game__container-center-bottom-item2 p {
@@ -629,8 +628,8 @@ body {
 }
 
 .game__container-center-bottom-item2-price {
-    width: 60px;
-    height: 22px;
+    width: 60%;
+    height: auto;
     background-color: #fff;
     border-radius: 4px;
     display: flex;
@@ -642,7 +641,7 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     color: #ff7b01;
-    padding-right: 3px;
+    padding: 4px 4px 4px 0;
 }
 
 .game__container-right {
@@ -737,8 +736,8 @@ body {
 }
 
 .game__container-right .btn .image1 {
-    margin-left: 3rem;
-    margin-right: 1.5rem;
+    margin-left: 3.5rem;
+    margin-right: 1rem;
 }
 
 .game__container-right .get-coin{
@@ -753,7 +752,13 @@ body {
     gap: 4px;
     margin-top: 0.8rem;
     margin-left: 2rem;
+    transition: 0.3s all;
 }
+
+.get-coin:active {
+    transform: scale(0.9);
+}
+
 .game__container-right .get-coin img{
     width: 15%;
 }
@@ -857,9 +862,12 @@ body {
     }
 
     .game__container-center-bottom-item2 {
-        width: 26%;
+        width: auto;
         gap: 0.3rem;
-        margin-right: 0.3rem;
+    }
+
+    .game__container-center-bottom-item2-price {
+        width: 60px;
     }
 
     .box-amount-item:nth-child(1) {
@@ -869,9 +877,6 @@ body {
     .game__container-center-bottom-item2 p {
         font-size: 1.1rem;
 
-    }
-    .game__container-center-bottom-item2-price {
-        width: 75px;
     }
 
     .game__container-center-bottom-item2-price span {
@@ -884,7 +889,7 @@ body {
 
     .game__container-right .btn-box {
         height: 14%;
-        margin-left: 52%;
+        margin-left: 49.5%;
     }
 
     .game__container-right .btn {
@@ -892,7 +897,7 @@ body {
     }
 
     .game__container-right .btn .image1 {
-        margin: 0.3rem 2rem 0 3rem;
+        margin: 0.3rem 1rem 0 3.5rem;
     }
     .game__container-right .btn img:nth-child(2) {
         margin-top: 0.3rem;
