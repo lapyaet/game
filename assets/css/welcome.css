@@ -18,12 +18,35 @@
 }
 
 .game__welcome-top-item1 {
-    width: 20%;
+    width: 25%;
     height: 100%;
     display: flex;
     margin-top: 1rem;
     gap: 0.5rem;
     margin-left: 5rem;
+}
+
+.vloume {
+    width: 52px;
+    height: 37%;
+    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+    border-radius: 15px;
+    margin-top: 0.35rem;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s all;
+    margin-right: 0.1rem;
+}
+
+.vloume:hover {
+    transform: translateX(-10%);
+}
+
+.vloume i{
+    color: #fff;
+    font-size: 1.8rem;
 }
 
 .game__welcome-top-item1 img {
@@ -138,6 +161,8 @@
 }
 
 .game__welcome-top-item2-coin p {
+    width: 35%;
+    text-align: end;
     font-size: 1.8rem;
     letter-spacing: 2px;
     font-weight: 700;
@@ -154,6 +179,7 @@
 }
 
 .game__welcome-center img {
+    margin-top: 3.5rem;
     width: 28%;
     height: auto;
     transition: 0.3s all;
@@ -228,5 +254,15 @@
 
     .loading h1 {
         margin-right: 6.5rem;
+    }
+
+    .vloume {
+        width: 75px;
+        border-radius: 18px;
+        margin-top: 0.5rem;
+    }
+
+    .vloume i {
+        font-size: 2.4rem;
     }
 }

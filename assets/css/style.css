@@ -733,12 +733,36 @@ body {
 }
 
 .game__container-right .btn img{
+    margin-top: 0.4rem;
     height: 100%;
     transition: 0.3s all;
 }
 
 .btn img:hover {
     transform: scale(0.8);
+}
+
+.quit-btn {
+    margin-top: 1rem;
+    background-color: #EC381F;
+    margin-left: 4.5rem;
+    padding: .8rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: 0.3s all;
+}
+
+.quit-btn:hover {
+    transform: scale(1.1);
+}
+
+.quit-btn:active {
+    transform: scale(0.9);
 }
 
 .game__container-right .btn .image1 {
@@ -794,6 +818,18 @@ body {
     display: none;
 }
 
+#winning {
+    display: none;
+}
+
+#loserSong {
+    display: none;
+}
+
+#happy {
+    display: none;
+}
+
 .animalCircleImg:hover {
     transform: scale(1.1);
 }
@@ -818,6 +854,14 @@ body {
     display: none;
 }
 
+.loserGif {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    top: 15%;
+    display: none;
+}
+
 @keyframes win {
     0% {
         transform: scale(0);
@@ -834,6 +878,11 @@ body {
     text-transform: uppercase;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.celebration {
+    position: absolute;
+    display: none;
 }
 
 @media (min-width:1400px) {
@@ -902,6 +951,7 @@ body {
     }
 
     .game__container-right .btn {
+        margin-top: 0.7rem;
         height: 13.4%;
     }
 
@@ -933,5 +983,10 @@ body {
     .right__circle {
         right: 16px;
         gap: 2rem;
+    }
+
+    .quit-btn {
+        padding: 1.2rem 3rem;
+        margin-left: 5rem;
     }
 }

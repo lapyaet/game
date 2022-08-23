@@ -1,11 +1,12 @@
 
 //audio function+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 function playAlarm(a) {
-    a.play()
+    a.play();
 }
 
 function stopAlarm (a) {
     a.pause()
+    a.currentTime = 0;
 }
 
 document.querySelector(".container").addEventListener ("click", function () {
@@ -21,9 +22,41 @@ let ss = document.getElementById("ss");
 // audio ==============================================================
 const sound = document.getElementById("audioTimer");
 const clock = document.getElementById("clock");
-const clockAlarm = document.getElementById("clockAlarm")
+const clockAlarm = document.getElementById("clockAlarm");
 const click = document.getElementById("click");
 const spanWheel = document.getElementById("spanWheel");
+const winning = document.getElementById("winning");
+const loserSong = document.getElementById("loserSong");
+const happy =document.getElementById("happy");
+const volume = document.querySelector(".vloume");
+const soundOnOff = document.querySelector(".fa-solid")
+
+let vloumeControl = true;
+volume.addEventListener("click", function () {
+    if(vloumeControl === true) {
+        happy.src = ""
+        sound.src = ""
+        soundOnOff.classList.add("fa-volume-xmark");
+        soundOnOff.classList.remove("fa-volume-high");
+        console.log(soundOnOff)
+        vloumeControl =false
+    }else {
+        console.log("hello")
+        happy.src = "./assets/audios/happy.mp3"
+        sound.src = "./assets/audios/Cartoon-Character-Aquarium.mp3";
+        soundOnOff.classList.add("fa-volume-high")
+        soundOnOff.classList.remove("fa-volume-xmark")
+        playAlarm(happy)
+        console.log(happy)
+        console.log(soundOnOff)
+        vloumeControl = true
+    }
+})
+
+setTimeout(function() {
+    playAlarm(happy)
+},2000)
+
 //audio ===============================================================
 
 const animalCircle = document.querySelectorAll(".img-container");
@@ -33,7 +66,24 @@ const reduceBtn = document.querySelectorAll (".reduceBtn");
 const coin = document.querySelector(".totalCoin");
 const resultWin = document.querySelector(".win");
 const betAmount = document.querySelector(".bet-amount");
-const loseText = document.querySelector(".loseText")
+const loseText = document.querySelector(".loseText");
+const wellcomeTotal = document.querySelector(".wellcomeTotal");
+const quitBtn = document.querySelector(".quit-btn");
+const celebration = document.querySelector(".celebration");
+const loserGif = document.querySelector(".loserGif")
+
+quitBtn.addEventListener("click", function () {
+    if(playPermission === false) {
+        return
+    }else {
+        welcomeLoading.style.display = "none";
+        welcome.style.display = "block";
+        gameSection.style.display = "none";
+        stopAlarm(sound);
+        playAlarm(happy);
+    }
+})
+
 
 //welcome section======================================================
 const welcome = document.querySelector(".game__welcome")
@@ -43,6 +93,7 @@ const welcomeLoading = document.querySelector(".loading__container")
 
 welcomePlay.addEventListener("click", function () {
     playAlarm(sound);
+    stopAlarm(happy);
     welcomeLoading.style.display = "block";
     setTimeout (()=>{
         welcome.style.display = "none";
@@ -94,7 +145,8 @@ startBtn.addEventListener("click", ()=> {
                 betsite = "hello"
                 countingStop ()
                 stopAlarm(clockAlarm);
-                let random = numberRandom (31);
+                let random = numberRandom (32);
+                console.log("random :" + random)
                 refershPremission = false;
                 gameIntervel = 0
                 animationCircle(100,null);
@@ -130,6 +182,7 @@ const stopBtn = document.querySelector(".stop-btn");
 const refersh = document.querySelector(".rotate");
 
 
+let refershPremission = true;
 stopBtn.addEventListener("click", function () {
     if(refershPremission === false) {
         return;
@@ -145,18 +198,18 @@ stopBtn.addEventListener("click", function () {
     }
 })
 
-let refershPremission = true;
-refersh.addEventListener("click", function () {
-    if (refershPremission === false) {
-        return
-    }else {
-        gameContainer.totalAmount += gameContainer.totalBet;
-        if(gameContainer.totalBet > 0) {
-            gameContainer.totalBet = 0
-        }
-        clearBetting();
-    }
-})
+// let refershPremission = true;
+// refersh.addEventListener("click", function () {
+//     if (refershPremission === false) {
+//         return
+//     }else {
+//         gameContainer.totalAmount += gameContainer.totalBet;
+//         if(gameContainer.totalBet > 0) {
+//             gameContainer.totalBet = 0
+//         }
+//         clearBetting();
+//     }
+// })
 // game container +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 const gameContainer = {
@@ -259,6 +312,7 @@ const array = [
         "monkey",
         "monkey"
 ]
+wellcomeTotal.innerText = gameContainer.totalAmount;
 
 // const dogBtn = document.getElementById("dog");
 
@@ -297,7 +351,7 @@ for(let i=0; i<animalBtn.length; i++) {
                 gameContainer.totalAmount -= 1;
                 coin.innerHTML = gameContainer.totalAmount;
                 gameContainer.totalBet += 1
-                betAmount.innerText = gameContainer.totalBet
+                betAmount.innerText = gameContainer.totalBet;
             }
         }
     })
@@ -347,11 +401,15 @@ for(let i=0; i<animalBtn.length; i++) {
         i++
         console.log(i-1)
         number--
-        if(i==32) {
+        if(i == 32) {
         // animalCircle[i-1].classList.remove("animal-circle")
         i=0
         }
         if(number == 0) {
+            console.log("hello"+ i);
+            if(i==0) {
+                i = 32
+            }
             stopAlarm(spanWheel)
             clearInterval(gameIntervel)
             setTimeout (() => {
@@ -393,7 +451,7 @@ for(let i=0; i<animalBtn.length; i++) {
 
 
 function numberRandom (ran) {
-    return Math.floor(Math.random()* ran)
+    return Math.floor((Math.random()* ran) + 1)
 }
 
 function winOrLose (x) {
@@ -451,7 +509,7 @@ function winOrLose (x) {
                 array[x] === gameContainer.animal[3].name) {
                     gameContainer.animal[10].betWin = gameContainer.animal[10].amount * 2;
                     console.log("landWin-"+win);
-                    coin.innerText = gameContainer.totalAmount;
+                    // coin.innerText = gameContainer.totalAmount;
         }
         if(array[x] === gameContainer.animal[4] .name||
                  array[x] === gameContainer.animal[5].name||
@@ -469,28 +527,36 @@ function winOrLose (x) {
     console.log("total"+ totalWin)
     gameContainer.totalAmount += win;
     coin.innerText = gameContainer.totalAmount;
+    wellcomeTotal.innerText = gameContainer.totalAmount
     console.log(gameContainer.totalAmount);
     
     if(totalWin > 0) {
         resultWin.innerText = totalWin;
         loseText.innerText = "Win";
-        loseText.style.color = "#fff"
+        loseText.style.color = "#06d6a0"
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "Congratulation!";
         winOrLoseText.textContent = "you win";
-        result.textContent = totalWin
+        result.textContent = totalWin;
+        celebration.style.display = "block";
+        playAlarm(winning);
         setTimeout(function () {
             resultWin.textContent = 0
             calculateWin.style.display = "none"
-        },60000)
+            loseText.style.color = "#fff"
+            betAmount.innerText = gameContainer.totalBet;
+            celebration.style.display = "none";
+            stopAlarm(winning)
+        },30000)
     }else if(totalWin === 0) {
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "Ohh oh!";
         winOrLoseText.textContent = "draw";
         result.textContent = totalWin
         setTimeout(function () {
-            calculateWin.style.display = "none"
-        },60000)
+            calculateWin.style.display = "none";
+            betAmount.innerText = gameContainer.totalBet;
+        },30000)
     }else {
         loseText.innerText = "Lose";
         loseText.style.color = "#E93C24";
@@ -499,11 +565,16 @@ function winOrLose (x) {
         winOrLoseHeader.textContent = "so sorry";
         winOrLoseText.textContent = "You Lose";
         result.textContent = totalWin;
+        loserGif.style.display = "block"
+        playAlarm(loserSong);
         setTimeout(function () {
             resultWin.innerText = 0;
             calculateWin.style.display = "none";
             loseText.innerText = "Win"
             loseText.style.color = "#fff"
-        },60000)
+            betAmount.innerText = gameContainer.totalBet;
+            loserGif.style.display = "none"
+            stopAlarm(loserSong)
+        },30000)
     }
 }
