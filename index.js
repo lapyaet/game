@@ -57,6 +57,9 @@ setTimeout(function() {
     playAlarm(happy)
 },2000)
 
+
+
+
 //audio ===============================================================
 
 const animalCircle = document.querySelectorAll(".img-container");
@@ -78,6 +81,14 @@ const gameContainerWinning =document.querySelector(".winning1");
 const gameContainerWinning2 =document.querySelector(".winning2");
 const gameContainerWinning3 =document.querySelector(".winning3");
 const gameContainerWinning4 =document.querySelector(".winning4");
+const switcher = document.querySelector("#switcher");
+const quitSetting = document.querySelector(".quit-setting");
+const settingContainer = document.querySelector(".setting__container");
+const settingBtn = document.querySelector(".settingIn");
+const quitAchievement = document.querySelector(".quit-achievement");
+const achievement = document.querySelector(".achievement__container");
+const achievementBtn = document.querySelector(".achievementBtn");
+const profileTotalCoin = document.querySelector(".profileTotalCoin")
 
 quitBtn.addEventListener("click", function () {
     if(playPermission === false) {
@@ -109,6 +120,56 @@ quitNo.addEventListener("click", function () {
 })
 
 
+let checked = true
+switcher.addEventListener("click", function () {
+    if(checked) {
+        console.log("hello")
+        happy.src = ""
+        sound.src = ""
+        checked = false
+    }else {
+        checked = true
+        happy.src = "./assets/audios/happy.mp3"
+        sound.src = "./assets/audios/Cartoon-Character-Aquarium.mp3";
+        playAlarm(happy)
+    }
+})
+
+settingBtn.addEventListener ("click", function () {
+    welcome.style.display = "none";
+    settingContainer.style.display = "flex";
+})
+
+quitSetting.addEventListener ("click", function () {
+    settingContainer.style.display = "none";
+    welcome.style.display = "block";
+})
+
+achievementBtn.addEventListener ("click", function () {
+    welcome.style.display = "none";
+    achievement.style.display = "flex";
+})
+
+quitAchievement.addEventListener ("click", function () {
+    achievement.style.display = "none";
+    welcome.style.display = "block"
+})
+
+window.onload = function () {
+    slider = document.querySelector(".slider input");
+    slider.oninput = function () {
+        progressBar = document.querySelector(".slider progress");
+        progressBar.value = slider.value;
+        happy.volume = slider.value / 100
+        sound.volume = slider.value /100
+        clock.volume = slider.value /100
+        clockAlarm.volume = slider.value /100
+        click.volume = slider.value /100
+        spanWheel.volume = slider.value /100
+        winning.volume = slider.value /100
+        loserSong.volume = slider.value /100
+    }
+}
 //welcome section======================================================
 const welcome = document.querySelector(".game__welcome")
 const welcomePlay = document.getElementById("welcomePlay");
@@ -349,6 +410,8 @@ const array = [
         "monkey",
         "monkey"
 ]
+
+profileTotalCoin.innerText = gameContainer.totalAmount;
 wellcomeTotal.innerText = gameContainer.totalAmount;
 
 // const dogBtn = document.getElementById("dog");
@@ -564,7 +627,8 @@ function winOrLose (x) {
     console.log("total"+ totalWin)
     gameContainer.totalAmount += win;
     coin.innerText = gameContainer.totalAmount;
-    wellcomeTotal.innerText = gameContainer.totalAmount
+    wellcomeTotal.innerText = gameContainer.totalAmount;
+    profileTotalCoin.innerText = gameContainer.totalAmount;
     console.log(gameContainer.totalAmount);
     
     if(totalWin > 0) {
