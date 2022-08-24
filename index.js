@@ -70,18 +70,42 @@ const loseText = document.querySelector(".loseText");
 const wellcomeTotal = document.querySelector(".wellcomeTotal");
 const quitBtn = document.querySelector(".quit-btn");
 const celebration = document.querySelector(".celebration");
-const loserGif = document.querySelector(".loserGif")
+const loserGif = document.querySelector(".loserGif");
+const sureQuit = document.querySelector(".sure-quit");
+const quitYes = document.querySelector(".quit-yes");
+const quitNo = document.querySelector(".quit-no");
+const gameContainerWinning =document.querySelector(".winning1");
+const gameContainerWinning2 =document.querySelector(".winning2");
+const gameContainerWinning3 =document.querySelector(".winning3");
+const gameContainerWinning4 =document.querySelector(".winning4");
 
 quitBtn.addEventListener("click", function () {
     if(playPermission === false) {
         return
     }else {
+        playPermission = false
+        // welcomeLoading.style.display = "none";
+        // welcome.style.display = "block";
+        // gameSection.style.display = "none";
+        // stopAlarm(sound);
+        // playAlarm(happy);
+        sureQuit.style.display = "block"
+    }
+})
+
+quitYes.addEventListener ("click",function () {
+        sureQuit.style.display = "none"
         welcomeLoading.style.display = "none";
         welcome.style.display = "block";
         gameSection.style.display = "none";
+        playPermission = true
         stopAlarm(sound);
         playAlarm(happy);
-    }
+})
+
+quitNo.addEventListener("click", function () {
+    playPermission = true
+    sureQuit.style.display = "none"
 })
 
 
@@ -89,7 +113,10 @@ quitBtn.addEventListener("click", function () {
 const welcome = document.querySelector(".game__welcome")
 const welcomePlay = document.getElementById("welcomePlay");
 const gameSection = document.querySelector(".game__container");
-const welcomeLoading = document.querySelector(".loading__container")
+const welcomeLoading = document.querySelector(".loading__container");
+const profileSettingBtn = document.querySelector(".game__welcome-top-item2-name-left");
+const profileSetting = document.querySelector(".profile__setting");
+const quitProfile = document.querySelector(".quit-profile")
 
 welcomePlay.addEventListener("click", function () {
     playAlarm(sound);
@@ -99,6 +126,16 @@ welcomePlay.addEventListener("click", function () {
         welcome.style.display = "none";
         gameSection.style.display = "flex";
     },4000) 
+});
+
+profileSettingBtn.addEventListener("click",function () {
+    welcome.style.display = "none"
+    profileSetting.style.display = "flex"
+});
+
+quitProfile.addEventListener("click", function () {
+    welcome.style.display = "block";
+    profileSetting.style.display = "none"
 })
 
 // winOrLose section==================================================================================
@@ -107,7 +144,7 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 30;
+let count = 10;
 let timerId = 0;
 let playPermission = true;
 
@@ -169,7 +206,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 30;
+    count = 10;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -539,6 +576,10 @@ function winOrLose (x) {
         winOrLoseText.textContent = "you win";
         result.textContent = totalWin;
         celebration.style.display = "block";
+        gameContainerWinning.style.display = "block"
+        gameContainerWinning2.style.display = "block"
+        gameContainerWinning3.style.display = "block"
+        gameContainerWinning4.style.display = "block"
         playAlarm(winning);
         setTimeout(function () {
             resultWin.textContent = 0
@@ -547,6 +588,13 @@ function winOrLose (x) {
             betAmount.innerText = gameContainer.totalBet;
             celebration.style.display = "none";
             stopAlarm(winning)
+            win = 0
+            totalWin = 0
+            console.log(win)
+            gameContainerWinning.style.display = "none"
+            gameContainerWinning2.style.display = "none"
+            gameContainerWinning3.style.display = "none"
+            gameContainerWinning4.style.display = "none"
         },30000)
     }else if(totalWin === 0) {
         calculateWin.style.display = "flex";
@@ -556,6 +604,9 @@ function winOrLose (x) {
         setTimeout(function () {
             calculateWin.style.display = "none";
             betAmount.innerText = gameContainer.totalBet;
+            win = 0
+            totalWin = 0
+            console.log(win)
         },30000)
     }else {
         loseText.innerText = "Lose";
@@ -574,7 +625,15 @@ function winOrLose (x) {
             loseText.style.color = "#fff"
             betAmount.innerText = gameContainer.totalBet;
             loserGif.style.display = "none"
-            stopAlarm(loserSong)
+            stopAlarm(loserSong);
+            win = 0 
+            totalWin = 0
+            console.log(win)
         },30000)
     }
+    setTimeout(function () {
+        for(let j=0; j<gameContainer.animal.length; j++) {
+            gameContainer.animal[j].betWin = 0
+        }
+    },35000)
 }
