@@ -210,7 +210,7 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 30;
+let count = 10;
 let timerId = 0;
 let playPermission = true;
 
@@ -272,7 +272,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 30;
+    count = 10;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -546,7 +546,7 @@ for(let i=0; i<animalBtn.length; i++) {
             },3000) 
             setTimeout(() => {
                 refershPremission = true
-                playPermission = true
+                // playPermission = true
                 playAlarm(sound)
                 i=0
             },4000)
@@ -649,6 +649,7 @@ function winOrLose (x) {
         gameContainerWinning2.style.display = "block"
         gameContainerWinning3.style.display = "block"
         gameContainerWinning4.style.display = "block"
+        playPermission = false
         playAlarm(winning);
         setTimeout(function () {
             resultWin.textContent = 0
@@ -664,18 +665,21 @@ function winOrLose (x) {
             gameContainerWinning2.style.display = "none"
             gameContainerWinning3.style.display = "none"
             gameContainerWinning4.style.display = "none"
+            playPermission = true
         },30000)
     }else if(totalWin === 0) {
         calculateWin.style.display = "flex";
         winOrLoseHeader.textContent = "Ohh oh!";
         winOrLoseText.textContent = "draw";
         result.textContent = totalWin
+        playPermission = false
         setTimeout(function () {
             calculateWin.style.display = "none";
             betAmount.innerText = gameContainer.totalBet;
             win = 0
             totalWin = 0
             console.log(win)
+            playPermission = true
         },30000)
     }else {
         loseText.innerText = "Lose";
@@ -687,6 +691,7 @@ function winOrLose (x) {
         result.textContent = totalWin;
         loserGif.style.display = "block"
         playAlarm(loserSong);
+        playPermission = false
         setTimeout(function () {
             resultWin.innerText = 0;
             calculateWin.style.display = "none";
@@ -698,6 +703,7 @@ function winOrLose (x) {
             win = 0 
             totalWin = 0
             console.log(win)
+            playPermission = true
         },30000)
     }
     setTimeout(function () {
