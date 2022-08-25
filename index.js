@@ -4,6 +4,14 @@ function playClick () {
     click.play()
 }
 
+function playWin () {
+    winning.play()
+}
+
+function playLose () {
+    loserSong.play()
+}
+
 function playAlarm(a) {
     a.play();
     a.loop = true
@@ -58,13 +66,6 @@ volume.addEventListener("click", function () {
     }
 })
 
-setTimeout(function() {
-    playAlarm(happy)
-},2000)
-
-
-
-
 //audio ===============================================================
 
 const animalCircle = document.querySelectorAll(".img-container");
@@ -93,7 +94,75 @@ const settingBtn = document.querySelector(".settingIn");
 const quitAchievement = document.querySelector(".quit-achievement");
 const achievement = document.querySelector(".achievement__container");
 const achievementBtn = document.querySelector(".achievementBtn");
-const profileTotalCoin = document.querySelector(".profileTotalCoin")
+const profileTotalCoin = document.querySelector(".profileTotalCoin");
+const gameBeforeStart = document.querySelector(".gameBeforeStart");
+const beforeContainer = document.querySelector(".container");
+const ring = document.querySelector(".ring");
+const ringText = document.querySelector(".ring-text");
+const winAnimal = document.querySelector(".win-animal");
+
+function getImage (url) {
+    return new Promise (function (resolve,reject) {
+        var img = new Image();
+        img.onload = function () {
+            resolve(url);
+        }
+        img.onerror = function () {
+            reject(url);
+        }
+        img.src = url
+    })
+}
+
+function gameContainerPreloader () {
+    Promise.all([
+        getImage("./assets/images/menu-board/victory.png"),
+        getImage("./assets/images/menu-board/setting.png"),
+        getImage("./assets/images/menu-board/person icon.png"),
+        getImage("./assets/images/btn/coin1.png"),
+        getImage("./assets/images/menu-board/play.png"),
+        getImage("./assets/images/btn/coin1.png"),
+        getImage("./assets/images/menu-board/person icon.png"),
+        getImage("./assets/images/round-buttons/dog.png"),
+        getImage("./assets/images/round-buttons/monkey.png"),
+        getImage("./assets/images/round-buttons/sheep.png"),
+        getImage("./assets/images/round-buttons/elephant.png"),
+        getImage("./assets/images/round-buttons/seahorse.png"),
+        getImage("./assets/images/round-buttons/jellyfish.png"),
+        getImage("./assets/images/round-buttons/dolphin.png"),
+        getImage("./assets/images/round-buttons/shark.png"),
+        getImage("./assets/images/square-buttons/1661398104010-removebg-preview.png"),
+        getImage("./assets/images/square-buttons/dog(top corner).png"),
+        getImage("./assets/images/square-buttons/whale(top corner).png"),
+        getImage("./assets/images/square-buttons/seahorse(right side).png"),
+        getImage("./assets/images/square-buttons/jellyfish(top corner).png"),
+        getImage("./assets/images/square-buttons/whale(right side).png"),
+        getImage("./assets/images/square-buttons/dolphin(bottom).png"),
+        getImage("./assets/images/square-buttons/shark(right side).png"),
+        getImage("./assets/images/square-buttons/elephant(bottom).png"),
+        getImage("./assets/images/square-buttons/sheep(left side).png"),
+        getImage("./assets/images/square-buttons/monkey(left side).png"),
+        getImage("./assets/images/menu-board/giphy.gif"),
+        getImage("./assets/images/menu-board/a7e63493c33a7b364f81ed6d71526908.gif"),
+        getImage("./assets/images/round-buttons/1661398104150-removebg-preview.png"),
+        getImage("./assets/images/round-buttons/whale.png"),
+        getImage("./assets/images/round-buttons/land.png"),
+        getImage("./assets/images/round-buttons/sea.png"),
+        getImage("./assets/images/btn/play.png"),
+        getImage("./assets/images/btn/coin1.png"),
+        getImage("./assets/images/menu-board/NR7Y.gif"),
+        getImage("./assets/images/square-buttons/sea-bg.png"),
+        getImage("./assets/images/menu-board/processed-057daf40-fd87-4482-8246-f6a08de38dd7_9pNX3tMT.jpg")
+    ]).then ( () => {
+        ring.style.display = "none";
+        ringText.style.display = "none"
+        gameBeforeStart.style.background = "linear-gradient(to bottom, #ffe600, #ff7b01)";
+        beforeContainer.style.display = "flex";
+        playAlarm(happy)
+    })
+}
+
+gameContainerPreloader();
 
 quitBtn.addEventListener("click", function () {
     if(playPermission === false) {
@@ -111,8 +180,9 @@ quitBtn.addEventListener("click", function () {
 
 quitYes.addEventListener ("click",function () {
         sureQuit.style.display = "none"
-        welcomeLoading.style.display = "none";
+        ringText.style.display = "none"
         welcome.style.display = "block";
+        welcomeLoading.style.display = "none"
         gameSection.style.display = "none";
         playPermission = true
         stopAlarm(sound);
@@ -210,7 +280,7 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 10;
+let count = 30;
 let timerId = 0;
 let playPermission = true;
 
@@ -272,7 +342,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 10;
+    count = 30;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -320,51 +390,61 @@ const gameContainer = {
         {
             name : "dog",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/dog.png"
         },
         {
             name : "monkey",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/monkey.png"
         },
         {
             name : "sheep",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/sheep.png"
         },
         {
             name : "elephant",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl: "./assets/images/round-buttons/elephant.png"
         },
         {
             name : "seahorse",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl: "./assets/images/round-buttons/seahorse.png"
         },
         {
             name : "jellyfish",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/jellyfish.png"
         },
         {
             name : "dolphin",
             amount: 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/dolphin.png"
         },
         {
             name : "shark",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/shark.png"
         },{
             name : "tortoise",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/1661398104150-removebg-preview.png"
         },
         {
             name : "whale",
             amount : 0,
-            betWin : 0
+            betWin : 0,
+            animalUrl : "./assets/images/round-buttons/whale.png"
         },
         {
             name : "land",
@@ -566,42 +646,52 @@ function winOrLose (x) {
 
         if(array[x] === gameContainer.animal[0].name) {
             gameContainer.animal[0].betWin = gameContainer.animal[0].amount * 4
+            winAnimal.src = gameContainer.animal[0].animalUrl
         }
 
         if(array[x] === gameContainer.animal[1].name) {
-            gameContainer.animal[1].betWin = gameContainer.animal[1].amount * 6
+            gameContainer.animal[1].betWin = gameContainer.animal[1].amount * 6;
+            winAnimal.src = gameContainer.animal[1].animalUrl
         }
 
         if(array[x] === gameContainer.animal[2].name) {
             gameContainer.animal[2].betWin = gameContainer.animal[2].amount * 12
+            winAnimal.src = gameContainer.animal[2].animalUrl
         }
 
         if(array[x] === gameContainer.animal[3].name) {
             gameContainer.animal[3].betWin = gameContainer.animal[3].amount * 24
+            winAnimal.src = gameContainer.animal[3].animalUrl
         }
 
         if(array[x] === gameContainer.animal[4].name) {
             gameContainer.animal[4].betWin = gameContainer.animal[4].amount * 4
+            winAnimal.src = gameContainer.animal[4].animalUrl
         }
 
         if(array[x]===gameContainer.animal[5].name) {
             gameContainer.animal[5].betWin = gameContainer.animal[5].amount * 6
+            winAnimal.src = gameContainer.animal[5].animalUrl
         }
 
         if(array[x]===gameContainer.animal[6].name) {
             gameContainer.animal[6].betWin = gameContainer.animal[6].amount * 12
+            winAnimal.src = gameContainer.animal[6].animalUrl
         }
 
         if(array[x]===gameContainer.animal[7].name) {
             gameContainer.animal[7].betWin = gameContainer.animal[7].amount * 24
+            winAnimal.src = gameContainer.animal[7].animalUrl
         }
 
         if(array[x]===gameContainer.animal[8].name) {
             gameContainer.animal[8].betWin = gameContainer.animal[8].amount * 24
+            winAnimal.src = gameContainer.animal[8].animalUrl
         }
 
         if(array[x]===gameContainer.animal[9].name) {
             gameContainer.animal[9].betWin = gameContainer.animal[9].amount * 48
+            winAnimal.src = gameContainer.animal[9].animalUrl
         }
 
         // if( gameContainer.animal[i].name === array[x]) {
@@ -650,7 +740,7 @@ function winOrLose (x) {
         gameContainerWinning3.style.display = "block"
         gameContainerWinning4.style.display = "block"
         playPermission = false
-        playAlarm(winning);
+        playWin()
         setTimeout(function () {
             resultWin.textContent = 0
             calculateWin.style.display = "none"
@@ -690,7 +780,7 @@ function winOrLose (x) {
         winOrLoseText.textContent = "You Lose";
         result.textContent = totalWin;
         loserGif.style.display = "block"
-        playAlarm(loserSong);
+        playLose()
         playPermission = false
         setTimeout(function () {
             resultWin.innerText = 0;

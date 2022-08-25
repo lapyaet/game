@@ -5,18 +5,21 @@
 @import url(../css/profile.css);
 @import url(../css/setting.css);
 @import url(../css/achievement.css);
+@import url(../css/loading.css);
 
 html {
     font-family: 'Roboto', sans-serif;
 }
 
-body {
+
+
+.gameBeforeStart {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+    background: black;
 }
 
 .container {
@@ -30,6 +33,17 @@ body {
     align-items: center;
     border-radius: 32px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    display: none;
+    animation: move 3s ease;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 .game {
@@ -850,8 +864,8 @@ body {
 }
 
 .winOrLose {
-    width: 200px;
-    height: 150px;
+    width: 220px;
+    height: 200px;
     border-radius: 20px;
     background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
     -webkit-backdrop-filter: blur(10px);
@@ -865,11 +879,16 @@ body {
     display: none;
 }
 
+.winOrLose .win-animal {
+    width: 30%;
+    height: auto;
+}
+
 .loserGif {
     position: absolute;
     width: 50%;
     height: auto;
-    top: 15%;
+    top: 4%;
     display: none;
 }
 
