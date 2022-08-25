@@ -676,6 +676,15 @@ body {
     margin-left: 0.5rem;
 }
 
+.update {
+    height: 90% !important;
+    width: auto;
+}
+
+.box-amount1 {
+    margin-left: 0.5rem;
+}
+
 .box-amount {
     width: 52%;
     height: 65%;

@@ -1,7 +1,12 @@
 
 //audio function+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function playClick () {
+    click.play()
+}
+
 function playAlarm(a) {
     a.play();
+    a.loop = true
 }
 
 function stopAlarm (a) {
@@ -10,7 +15,7 @@ function stopAlarm (a) {
 }
 
 document.querySelector(".container").addEventListener ("click", function () {
-    playAlarm(click);
+    playClick()
 })
 
 
@@ -205,7 +210,7 @@ const winOrLoseHeader = document.querySelector(".winOrLoseHeader");
 const winOrLoseText = document.querySelector(".winOrLoseText");
 const result = document.querySelector(".result");
 
-let count = 10;
+let count = 30;
 let timerId = 0;
 let playPermission = true;
 
@@ -267,7 +272,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 10;
+    count = 30;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
