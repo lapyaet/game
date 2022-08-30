@@ -58,7 +58,7 @@
             <!--profile start==================================================================================-->
             <div class="profile__setting">
                 <div class="profile__setting-left">
-                    <h4>Name</h4>
+                    <h4>John</h4>
                     <div class="profile__level-bar">
                         <div></div>
                     </div>
@@ -97,8 +97,8 @@
                         </span>
                         <div class="slider-cont">
                             <div class="slider">
-                                <input type="range" min="0" max="100" value="50">
-                                <progress min="0" max="100" value="50"></progress>
+                                <input type="range" min="0" max="100" value="100">
+                                <progress min="0" max="100" value="100"></progress>
                             </div>
                         </div>
                     </div>
@@ -119,16 +119,25 @@
                 <h3>Leaderboard</h3>
                 <div class="achievement__container-item">
                     <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <p>0</p>
+                        <h5>John</h5>
+                        <div class="trophy">
+                            <p class="achievementAmount">0</p>
+                            <i class="fa-solid fa-trophy first"></i>
+                        </div>
                     </div>
                     <div class="achivement__container-item-text">
                         <h5>Name</h5>
-                        <p>0</p>
+                        <div class="trophy">
+                            <p>0</p>
+                            <i class="fa-solid fa-trophy trophySecond"></i>
+                        </div>
                     </div>
                     <div class="achivement__container-item-text">
                         <h5>Name</h5>
-                        <p>0</p>
+                        <div class="trophy">
+                            <p>0</p>
+                            <i class="fa-solid fa-trophy third"></i>
+                        </div>
                     </div>
                     <div class="achivement__container-item-text">
                         <h5>Name</h5>
@@ -152,6 +161,27 @@
                 </div>
             </div>
             <!--achievement end ==================================================================================-->
+
+            <!--game version start================================================================================-->
+            <section class="version">
+                <div class="version-logo">
+                    <img src="./assets/images/menu-board/gameicon_copy_2-removebg-preview.png" alt="">
+                    <h4>Betting Slots</h4>
+                    <p>Version <span>2.4.0</span></p>
+                </div>
+                <div class="vesion-detial">
+                    <p>Version</p>
+                    <span>2.4.0_3eb6f01_210926</span>
+                </div>
+                <div class="vesion-detial">
+                    <p>Engine version</p>
+                    <span>1065</span>
+                </div>
+                <div class="quit-version">
+                    <i class="fa-solid fa-caret-left"></i>
+                </div>
+            </section>
+            <!--game version end===================================================================================-->
 
             <div class="game__container">
                 <div class="game__container-left">
@@ -476,10 +506,10 @@
                             </div>
                         </div>
                         <div class="winOrLose">
-                            <h3 class="winOrLoseHeader">Congratulation!</h3>
+                            <!-- <h3 class="winOrLoseHeader">Congratulation!</h3> -->
                             <img src="" alt="" class="win-animal">
-                            <h5 class="winOrLoseText">You Win</h5>
-                            <p class="result">total Win</p>
+                            <!-- <h5 class="winOrLoseText">You Win</h5>
+                            <p class="result">total Win</p> -->
                         </div>
                         <div class="sure-quit">
                             <p>Are you sure to quit</p>

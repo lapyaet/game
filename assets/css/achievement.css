@@ -61,11 +61,33 @@
     align-items: center;
 }
 
+.trophy {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+}
 .achivement__container-item-text p {
     color: #ef233c;
     font-weight: 600;
     font-size: 1.5rem;
     padding-left: 1rem;
+}
+
+.trophy i {
+    font-size: 1.8rem;
+}
+
+.first {
+    color: #F7D000;
+}
+
+.trophySecond {
+    color: #BABABA;
+}
+
+.third {
+    color: #B87333;
 }
 
 .text7::after{

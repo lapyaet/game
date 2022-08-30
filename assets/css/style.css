@@ -6,6 +6,7 @@
 @import url(../css/setting.css);
 @import url(../css/achievement.css);
 @import url(../css/loading.css);
+@import url(../css/version.css);
 
 html {
     font-family: 'Roboto', sans-serif;
@@ -206,6 +207,7 @@ html {
     height: 100%;
     display: flex;
     margin-top: 0.5rem;
+    margin-right: 0.5rem;
 }
 .leftSideBoxContainer,
 .rightSideBoxContainer{
@@ -598,7 +600,7 @@ html {
 
 .game__container-center-bottom {
     width: 100%;
-    height: 10%;
+    height: 52px;
     background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
     margin-top: 1.4rem;
     border-radius: 8px;
@@ -667,12 +669,13 @@ html {
 }
 
 .game__container-right {
-    width: 30%;
+    width: 28%;
     height: 100%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: 0.4rem;
 }
 .game__container-right .box{
     padding: 0px;
@@ -681,8 +684,9 @@ html {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 6px;
+    margin-left: 0.3rem;
 }
 .game__container-right .box .animalCircleImg{
     width: auto;
@@ -696,12 +700,12 @@ html {
 }
 
 .box-amount1 {
-    margin-left: 0.5rem;
+    margin-left: 0.3rem;
 }
 
 .box-amount {
-    width: 52%;
-    height: 65%;
+    width: 60%;
+    height: 75%;
     border-radius: 8px;
     display: flex;
     background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
@@ -719,7 +723,7 @@ html {
 }
 
 .box-amount-item {
-    width: 40%;
+    width: 42%;
     height: 70%;
     background-color: #fff;
     border-radius: 8px;
@@ -770,8 +774,8 @@ html {
 .quit-btn {
     margin-top: 1rem;
     background-color: #EC381F;
-    margin-left: 4.5rem;
-    padding: .8rem 2.5rem;
+    margin-left: 2.8rem;
+    padding: .8rem 3.5rem;
     border: none;
     outline: none;
     border-radius: 40px;
@@ -791,7 +795,7 @@ html {
 }
 
 .game__container-right .btn .image1 {
-    margin-left: 3.5rem;
+    margin-left: 3rem;
     margin-right: 1rem;
 }
 
@@ -800,13 +804,13 @@ html {
     align-items: center;
     justify-content: center;
     padding: 0px;
-    width: 75%;
-    height: 48px;
+    width: 78%;
+    height: 52px;
     background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
     border-radius: 10px;
     gap: 4px;
     margin-top: 0.8rem;
-    margin-left: 2rem;
+    margin-left: 1.3rem;
     transition: 0.3s all;
 }
 
@@ -867,20 +871,20 @@ html {
     width: 220px;
     height: 200px;
     border-radius: 20px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    /* background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    /* gap: 1rem; */
     animation: win 1s ease-in-out;
     display: none;
 }
 
 .winOrLose .win-animal {
-    width: 30%;
+    width: 50%;
     height: auto;
 }
 
@@ -1012,6 +1016,7 @@ html {
     }
 
     .game__container-center-bottom {
+        height: 67px;
         margin-top: 1.6rem;
     }
 
@@ -1073,6 +1078,7 @@ html {
     .game__container-right .get-coin {
         margin-top: 1.4rem;
         height: 67px;
+        margin-left: 1.8rem;
     }
 
     .game__container-right .get-coin img {
@@ -1094,7 +1100,16 @@ html {
     }
 
     .quit-btn {
-        padding: 1.2rem 3rem;
-        margin-left: 5rem;
+        padding: 1.2rem 4.5rem;
+        margin-left: 3.5rem;
+    }
+
+    .sure-quit {
+        width: 50%;
+        height: 40%;
+    }
+
+    .game__container-right .box {
+        margin-left: 0.5rem;
     }
 }

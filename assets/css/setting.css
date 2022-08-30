@@ -8,6 +8,7 @@
     display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .setting__container h3{
@@ -18,9 +19,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
-    font-weight: 700;
-    padding-top: 5rem;
+    font-weight: 800;
     margin-bottom: 2rem;
+    font-family: 'Lobster', cursive;
 }
 
 .setting__container-item {
@@ -44,6 +45,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+    font-family: 'Lobster', cursive;
 }
 
 .setting__container-item-right {
@@ -199,24 +201,32 @@
 }
 
 .setting__container-text {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .setting__container .text {
     text-align: center;
-    margin-top: 3rem;
-    font-size: 1rem;
+    margin-top: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #fff;
     background: linear-gradient(to bottom, #ffe600, #ff7b01);
-    width: 30%;
+    min-width: 35%;
     padding: 0.9rem 0;
     border-radius: 45px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     transition: 0.3s all;
+    margin-left: 2rem;
+    font-family: 'Lobster', cursive;
+}
+
+.setting__container .text:nth-child(3) {
+    margin-top: 0rem;
 }
 
 .setting__container .text:hover {
