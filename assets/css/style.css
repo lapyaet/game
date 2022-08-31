@@ -1003,12 +1003,13 @@ html {
     height: 380px;
     background: linear-gradient(90deg, #ffe600, #ff7b01);
     border-radius: 45px;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem 0;
     gap: 1rem;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    animation: win 1s ease-in-out;
 }
 
 .result-animal img {
