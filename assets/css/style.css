@@ -21,6 +21,7 @@ html {
     justify-content: center;
     align-items: center;
     background: black;
+    gap: 0.8rem;
 }
 
 .container {
@@ -884,7 +885,7 @@ html {
 }
 
 .winOrLose .win-animal {
-    width: 50%;
+    width: 80%;
     height: auto;
 }
 
@@ -995,6 +996,24 @@ html {
 .winning4 {
     bottom: 0;
     right: -10%;
+}
+
+.result-animal {
+    width: 80px;
+    height: 380px;
+    background: linear-gradient(90deg, #ffe600, #ff7b01);
+    border-radius: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    gap: 1rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+
+.result-animal img {
+    width: 80%;
+    height: auto;
 }
 
 @media (min-width:1400px) {

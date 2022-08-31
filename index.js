@@ -110,6 +110,7 @@ const achievementAmount = document.querySelector(".achievementAmount");
 const aboutBetting = document.querySelector(".text3");
 const version = document.querySelector(".version");
 const quitVersion = document.querySelector(".quit-version");
+// const resltAnimal = document.querySelector(".result-animal");
 
 function getImage (url) {
     return new Promise (function (resolve,reject) {
@@ -179,11 +180,6 @@ quitBtn.addEventListener("click", function () {
         return
     }else {
         playPermission = false
-        // welcomeLoading.style.display = "none";
-        // welcome.style.display = "block";
-        // gameSection.style.display = "none";
-        // stopAlarm(sound);
-        // playAlarm(happy);
         sureQuit.style.display = "block"
     }
 })
@@ -435,60 +431,70 @@ const gameContainer = {
             name : "dog",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/com-gif-maker-unscreen.gif"
+            animalUrl : "./assets/images/animal-gif/com-gif-maker-unscreen.gif",
+            resultUrl : "./assets/images/round-buttons/dog.png"
         },
         {
             name : "monkey",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/monkey.gif"
+            animalUrl : "./assets/images/animal-gif/monkey.gif",
+            resultUrl : "./assets/images/round-buttons/monkey.png"
         },
         {
             name : "sheep",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/sheep.gif"
+            animalUrl : "./assets/images/animal-gif/sheep.gif",
+            resultUrl : "./assets/images/round-buttons/sheep.png"
         },
         {
             name : "elephant",
             amount : 0,
             betWin : 0,
-            animalUrl: "./assets/images/animal-gif/elephant.gif"
+            animalUrl: "./assets/images/animal-gif/elephant.gif",
+            resultUrl : "./assets/images/round-buttons/elephant.png"
         },
         {
             name : "seahorse",
             amount : 0,
             betWin : 0,
-            animalUrl: "./assets/images/animal-gif/output-onlinegiftools (2).gif"
+            animalUrl: "./assets/images/animal-gif/output-onlinegiftools (2).gif",
+            resultUrl : "./assets/images/round-buttons/seahorse.png"
         },
         {
             name : "jellyfish",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/jellyfish.gif"
+            animalUrl : "./assets/images/animal-gif/jellyfish.gif",
+            resultUrl : "./assets/images/round-buttons/jellyfish.png"
         },
         {
             name : "dolphin",
             amount: 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/dolphin.gif"
+            animalUrl : "./assets/images/animal-gif/dolphin.gif",
+            resultUrl : "./assets/images/round-buttons/dolphin.png"
         },
         {
             name : "shark",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/shark.gif"
+            animalUrl : "./assets/images/animal-gif/shark.gif",
+            resultUrl : "./assets/images/round-buttons/shark.png"
         },{
             name : "tortoise",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/round-buttons/1661398104150-removebg-preview.png"
+            animalUrl : "./assets/images/round-buttons/1661398104150-removebg-preview.png",
+            resultUrl : "./assets/images/round-buttons/1661398104150-removebg-preview.png"
         },
         {
             name : "whale",
             amount : 0,
             betWin : 0,
-            animalUrl : "./assets/images/animal-gif/whale.gif"
+            animalUrl : "./assets/images/animal-gif/whale.gif",
+            resultUrl : "./assets/images/round-buttons/whale.png"
         },
         {
             name : "land",
@@ -670,8 +676,6 @@ for(let i=0; i<animalBtn.length; i++) {
                 clearBetting();
             },3000) 
             setTimeout(() => {
-                refershPremission = true
-                // playPermission = true
                 playAlarm(sound)
                 i=0
             },4000)
@@ -691,52 +695,81 @@ function winOrLose (x) {
 
         if(array[x] === gameContainer.animal[0].name) {
             gameContainer.animal[0].betWin = gameContainer.animal[0].amount * 4
-            winAnimal.src = gameContainer.animal[0].animalUrl
+            winAnimal.src = gameContainer.animal[0].animalUrl;
+            // const dogImage = document.createElement("img");
+            // dogImage.src = gameContainer.animal[0].resultUrl
+            // resltAnimal.appendChild(dogImage)
         }
-
         if(array[x] === gameContainer.animal[1].name) {
             gameContainer.animal[1].betWin = gameContainer.animal[1].amount * 6;
-            winAnimal.src = gameContainer.animal[1].animalUrl
+            winAnimal.src = gameContainer.animal[1].animalUrl;
+            // const monkeyImage = document.createElement("img");
+            // monkeyImage.src = gameContainer.animal[1].resultUrl
+            // resltAnimal.appendChild(monkeyImage)
         }
 
         if(array[x] === gameContainer.animal[2].name) {
             gameContainer.animal[2].betWin = gameContainer.animal[2].amount * 12
             winAnimal.src = gameContainer.animal[2].animalUrl
+            // const sheepImage = document.createElement("img");
+            // sheepImage.src = gameContainer.animal[2].resultUrl
+            // resltAnimal.appendChild(sheepImage)
         }
 
         if(array[x] === gameContainer.animal[3].name) {
             gameContainer.animal[3].betWin = gameContainer.animal[3].amount * 24
             winAnimal.src = gameContainer.animal[3].animalUrl
+            // const elephantImage = document.createElement("img");
+            // elephantImage.src = gameContainer.animal[3].resultUrl
+            // resltAnimal.appendChild(elephantImage)
         }
 
         if(array[x] === gameContainer.animal[4].name) {
             gameContainer.animal[4].betWin = gameContainer.animal[4].amount * 4
             winAnimal.src = gameContainer.animal[4].animalUrl
+            // const seahorkImage = document.createElement("img");
+            // seahorkImage.src = gameContainer.animal[4].resultUrl
+            // resltAnimal.appendChild(seahorkImage)
         }
 
         if(array[x]===gameContainer.animal[5].name) {
             gameContainer.animal[5].betWin = gameContainer.animal[5].amount * 6
             winAnimal.src = gameContainer.animal[5].animalUrl
+            // const jellyfishImage = document.createElement("img");
+            // jellyfishImage.src = gameContainer.animal[5].resultUrl
+            // resltAnimal.appendChild(jellyfishImage)
         }
 
         if(array[x]===gameContainer.animal[6].name) {
             gameContainer.animal[6].betWin = gameContainer.animal[6].amount * 12
             winAnimal.src = gameContainer.animal[6].animalUrl
+            // const dolphinImage = document.createElement("img");
+            // dolphinImage.src = gameContainer.animal[6].resultUrl
+            // resltAnimal.appendChild(dolphinImage)
         }
 
         if(array[x]===gameContainer.animal[7].name) {
             gameContainer.animal[7].betWin = gameContainer.animal[7].amount * 24
             winAnimal.src = gameContainer.animal[7].animalUrl
+            // const sharkImage = document.createElement("img");
+            // sharkImage.src = gameContainer.animal[7].resultUrl
+            // resltAnimal.appendChild(sharkImage)
         }
 
         if(array[x]===gameContainer.animal[8].name) {
             gameContainer.animal[8].betWin = gameContainer.animal[8].amount * 24
             winAnimal.src = gameContainer.animal[8].animalUrl
+            // const tortoiseImage = document.createElement("img");
+            // tortoiseImage.src = gameContainer.animal[8].resultUrl
+            // resltAnimal.appendChild(tortoiseImage)
         }
 
         if(array[x]===gameContainer.animal[9].name) {
             gameContainer.animal[9].betWin = gameContainer.animal[9].amount * 48
             winAnimal.src = gameContainer.animal[9].animalUrl
+            // const WhaleImage = document.createElement("img");
+            // WhaleImage.src = gameContainer.animal[9].resultUrl
+            //  resltAnimal.appendChild(WhaleImage)
         }
 
         // if( gameContainer.animal[i].name === array[x]) {
@@ -785,6 +818,7 @@ function winOrLose (x) {
         gameContainerWinning2.style.display = "block"
         gameContainerWinning3.style.display = "block"
         gameContainerWinning4.style.display = "block"
+        refershPremission = false
         playPermission = false
         playWin()
         setTimeout(function () {
@@ -802,6 +836,7 @@ function winOrLose (x) {
             gameContainerWinning3.style.display = "none"
             gameContainerWinning4.style.display = "none"
             playPermission = true
+            refershPremission = true
         },30000)
     // }else if(totalWin === 0) {
     //     calculateWin.style.display = "flex";
@@ -825,9 +860,11 @@ function winOrLose (x) {
         // winOrLoseHeader.textContent = "so sorry";
         // winOrLoseText.textContent = "You Lose";
         // result.textContent = totalWin;
-        loserGif.style.display = "block"
-        playLose()
         playPermission = false
+        refershPremission = false
+        loserGif.style.display = "block"
+        console.log(playPermission)
+        playLose()
         setTimeout(function () {
             resultWin.innerText = 0;
             calculateWin.style.display = "none";
@@ -840,6 +877,7 @@ function winOrLose (x) {
             totalWin = 0
             console.log(win)
             playPermission = true
+            refershPremission = true
         },30000)
     }
     setTimeout(function () {
