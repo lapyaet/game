@@ -323,7 +323,7 @@ const calculateWin = document.querySelector(".winOrLose");
 // const winOrLoseText = document.querySelector(".winOrLoseText");
 // const result = document.querySelector(".result");
 
-let count = 10;
+let count = 30;
 let timerId = 0;
 let playPermission = true;
 
@@ -385,7 +385,7 @@ startBtn.addEventListener("click", ()=> {
 function countingStop () {
     clearInterval(timerId);
     timerId = 0;
-    count = 10;
+    count = 30;
     second.innerText = count;
     stopAlarm(clock);
     stopAlarm(clockAlarm);
@@ -840,7 +840,7 @@ function winOrLose (x) {
             gameContainerWinning4.style.display = "none"
             playPermission = true
             refershPremission = true
-        },3000)
+        },30000)
     // }else if(totalWin === 0) {
     //     calculateWin.style.display = "flex";
     //     // winOrLoseHeader.textContent = "Ohh oh!";
@@ -878,11 +878,11 @@ function winOrLose (x) {
             totalWin = 0
             playPermission = true
             refershPremission = true
-        },3000)
+        },30000)
     }
     setTimeout(function () {
         for(let j=0; j<gameContainer.animal.length; j++) {
             gameContainer.animal[j].betWin = 0
         }
-    },3500)
+    },33000)
 }
