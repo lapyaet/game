@@ -241,23 +241,24 @@ switcher.addEventListener("input", function () {
 });
 
 window.addEventListener("load", function () {
-  let countNumber = this.localStorage.getItem("count");
+  // let countNumber = this.localStorage.getItem("count");
   const accpeted = this.localStorage.getItem("accept");
-  let progressNumber = this.localStorage.getItem("progress");
-  slider.value = progressNumber;
-  progressBar.value = progressNumber;
-  happy.volume = slider.value / 100;
-  sound.volume = slider.value / 100;
-  clock.volume = slider.value / 100;
-  clockAlarm.volume = slider.value / 100;
-  click.volume = slider.value / 100;
-  spanWheel.volume = slider.value / 100;
-  winning.volume = slider.value / 100;
-  loserSong.volume = slider.value / 100;
-  countTime = parseInt(countNumber);
-  // console.log(typeof countTime);
-  countText.innerText = countTime;
-  count = countTime;
+  // let progressNumber = this.localStorage.getItem("progress");
+  // console.log(progressNumber);
+  // slider.value = progressNumber;
+  // progressBar.value = progressNumber;
+  // happy.volume = slider.value / 100;
+  // sound.volume = slider.value / 100;
+  // clock.volume = slider.value / 100;
+  // clockAlarm.volume = slider.value / 100;
+  // click.volume = slider.value / 100;
+  // spanWheel.volume = slider.value / 100;
+  // winning.volume = slider.value / 100;
+  // loserSong.volume = slider.value / 100;
+  // countTime = parseInt(countNumber);
+  // // console.log(typeof countTime);
+  // countText.innerText = countTime;
+  // count = countTime;
   if (accpeted === "music") {
     happy.src = "";
     sound.src = "";
@@ -372,8 +373,9 @@ const countMinusBtn = document.querySelector(".countMinusBtn");
 
 let countTime = 30;
 let count = countTime;
-let countString = countTime.toString();
-// localStorage.setItem("count", countString);
+// let countString = countTime;
+// console.log(countTime);
+// localStorage.setItem("counting", countString);
 countText.innerText = countTime;
 function plusBtn() {
   if (countTime >= 60) {
@@ -384,9 +386,9 @@ function plusBtn() {
     disabled = false;
     countTime++;
     count = countTime;
-    countString = countTime.toString();
+    // countString = countTime.toString();
     // console.log(typeof countString);
-    localStorage.setItem("count", countString);
+    // localStorage.setItem("count", countString);
     countText.innerText = countTime;
     countPlusBtn.style.background = "#70e000";
   }
@@ -401,8 +403,8 @@ function minusBtn() {
     disabled = false;
     countTime--;
     count = countTime;
-    countString = countTime.toString();
-    localStorage.setItem("count", countString);
+    // countString = countTime.toString();
+    // localStorage.setItem("count", countString);
     countText.innerText = countTime;
     countMinusBtn.style.background = "#ec381f";
   }
