@@ -1,268 +1,270 @@
-
 .game__welcome {
-    width: 100%;
-    height: 100%;
-    background-image: url(../images/menu-board/processed-057daf40-fd87-4482-8246-f6a08de38dd7_9pNX3tMT.jpg);
-    background-size: cover;
-    border-radius: 45px;
-    cursor: pointer;
-    display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/menu-board/processed-057daf40-fd87-4482-8246-f6a08de38dd7_9pNX3tMT.jpg);
+  background-size: cover;
+  border-radius: 45px;
+  cursor: pointer;
+  display: block;
 }
 
 .game__welcome-top {
-    width: 100%;
-    height: 30%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  height: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .game__welcome-top-item1 {
-    width: 25%;
-    height: 100%;
-    display: flex;
-    margin-top: 1rem;
-    gap: 0.5rem;
-    margin-left: 5rem;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  margin-top: 1rem;
+  gap: 0.5rem;
+  margin-left: 5rem;
 }
 
 .vloume {
-    width: 52px;
-    height: 37%;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
-    border-radius: 15px;
-    margin-top: 0.35rem;
-    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s all;
-    margin-right: 0.1rem;
+  width: 52px;
+  height: 37%;
+  background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+  border-radius: 15px;
+  margin-top: 0.35rem;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s all;
+  margin-right: 0.1rem;
 }
 
 .vloume:hover {
-    transform: translateX(-10%);
+  transform: translateX(-10%);
 }
 
-.vloume i{
-    color: #fff;
-    font-size: 1.8rem;
+.vloume i {
+  color: #fff;
+  font-size: 1.8rem;
 }
 
 .game__welcome-top-item1 img {
-    height: 45%;
-    width: auto;
-    transition: 0.3s ease-in;
+  height: 45%;
+  width: auto;
+  transition: 0.3s ease-in;
 }
 
 .game__welcome-top-item1 img:hover {
-    transform:translateX(-10%);
+  transform: translateX(-10%);
 }
 
 .game__welcome-top-item2 {
-    width: 25%;
-    height: 100%;
-    margin-top: 1.2rem;
-    margin-right: 1.5rem;
+  width: 25%;
+  height: 100%;
+  margin-top: 1.2rem;
+  margin-right: 1.5rem;
 }
 
 .game__welcome-top-item2-name {
-    width: 95%;
-    height: 40%;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
-    border-radius: 38px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: 0.3s all;
+  width: 95%;
+  height: 40%;
+  background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+  border-radius: 38px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.3s all;
 }
 
 .game__welcome-top-item2-name:active {
-    transform: translateX(10%);
+  transform: translateX(10%);
 }
 
 .game__welcome-top-item2-name-left {
-    width: 70%;
-    height: 76%;
-    border-top-left-radius: 40px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 16px;
-    border-top-right-radius: 16px;
-    background-color: #fff;
-    margin-left: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
+  width: 70%;
+  height: 76%;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: #fff;
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
 }
 
 .game__welcome-top-item2-name-left p {
-    font-size: 0.9rem;
-    font-weight: 800;
-    margin-right: 6px;
-    margin-top: 5px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #ff7b01;
+  margin-right: 6px;
+  margin-top: 5px;
 }
 
 .game__welcome-top-item2-name-left-level {
-    width: 90%;
-    height: 12px;
-    border-radius: 40px;
-    margin-right: 2px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 90%;
+  height: 12px;
+  border-radius: 40px;
+  margin-right: 2px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .level-bar {
-    position: relative;
-    width: 92%;
-    height: 60%;
-    background-color: rgba(220, 220, 220, 0.5);
-    border-radius: 40px;
-    overflow: hidden;
+  position: relative;
+  width: 92%;
+  height: 60%;
+  background-color: rgba(220, 220, 220, 0.5);
+  border-radius: 40px;
+  overflow: hidden;
 }
 
-.level-bar::after{
-    content: "";
-    position: absolute;
-    width: 55%;
-    height: 100%;
-    left: 0;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+.level-bar::after {
+  content: "";
+  position: absolute;
+  width: 55%;
+  height: 100%;
+  left: 0;
+  background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
 }
-
 
 .game__welcome-top-item2-name img {
-    width: 16%;
-    height: auto;
+  width: 16%;
+  height: auto;
 }
 
 .game__welcome-top-item2-coin {
-    width: 95%;
-    height: 40%;
-    background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
-    border-radius: 38px;
-    display: flex;
-    margin-top: 0.8rem;
-    align-items: center;
-    gap: 0.8rem;
-    transition: 0.3s all;
+  width: 95%;
+  height: 40%;
+  background-image: linear-gradient(to bottom, #ffe600, #ff7b01);
+  border-radius: 38px;
+  display: flex;
+  margin-top: 0.8rem;
+  align-items: center;
+  gap: 0.8rem;
+  transition: 0.3s all;
 }
 
 .game__welcome-top-item2-coin:active {
-    transform: translateX(-10%);
+  transform: translateX(-10%);
 }
 
-.game__welcome-top-item2-coin img{
-    height: 78%;
-    width: auto;
-    margin-left: 1rem;
+.game__welcome-top-item2-coin img {
+  height: 78%;
+  width: auto;
+  margin-left: 1rem;
 }
 
 .game__welcome-top-item2-coin p {
-    width: 35%;
-    text-align: end;
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 35%;
+  text-align: end;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .game__welcome-center {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game__welcome-center img {
-    margin-top: 3.5rem;
-    width: 28%;
-    height: auto;
-    transition: 0.3s all;
+  margin-top: 3.5rem;
+  width: 28%;
+  height: auto;
+  transition: 0.3s all;
 }
 
 .game__welcome-center img:hover {
-    transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .loading__container {
-    width: 100%;
-    position: absolute;
-    bottom: 15%;
-    display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 15%;
+  display: none;
 }
 .loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .loading h1 {
-    font-size: 1.5rem;
-    color: #FFCB00;
-    text-align: center;
-    margin-right: 4.5rem;
-    margin-bottom: 0.8rem;
-    text-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  font-size: 1.5rem;
+  color: #ffcb00;
+  text-align: center;
+  margin-right: 4.5rem;
+  margin-bottom: 0.8rem;
+  text-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .loading .line-box {
-    width: 50%;
-    height: 15px;
-    background-color: #1d2630;
-    margin-right: 4rem;
-    border-radius: 20px;
-    border: 2px solid #267591;
+  width: 50%;
+  height: 15px;
+  background-color: #1d2630;
+  margin-right: 4rem;
+  border-radius: 20px;
+  border: 2px solid #267591;
 }
 
 .loading .line-box .line {
-    height: 15px;
-    border-radius: 20px;
-    background-color: #67d295;
-    animation: loading 3s forwards cubic-bezier(0,0,0,0);
+  height: 15px;
+  border-radius: 20px;
+  background-color: #67d295;
+  animation: loading 3s forwards cubic-bezier(0, 0, 0, 0);
 }
 
 @keyframes loading {
-    0%  {
-        width: 0%;
-    }
-    100% {
-        width: 100%;
-    }
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
-@media (min-width:1400px) {
-    .game__welcome-top-item2-name-left {
-        gap: 6px;
-    }
+@media (min-width: 1400px) {
+  .game__welcome-top-item2-name-left {
+    gap: 6px;
+  }
 
-    .game__welcome-top-item2-name-left p {
-        font-size: 1.1rem;
-    }
+  .game__welcome-top-item2-name-left p {
+    font-size: 1.1rem;
+  }
 
-    .game__welcome-top-item2-name-left-level {
-        height: 18px;
-    }
+  .game__welcome-top-item2-name-left-level {
+    height: 18px;
+  }
 
-    .game__welcome-top-item2-coin p {
-        font-size: 2.5rem;
-        letter-spacing: 3px;
-    }
+  .game__welcome-top-item2-coin p {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
 
-    .loading h1 {
-        margin-right: 6.5rem;
-    }
+  .loading h1 {
+    margin-right: 6.5rem;
+  }
 
-    .vloume {
-        width: 75px;
-        border-radius: 18px;
-        margin-top: 0.5rem;
-    }
+  .vloume {
+    width: 75px;
+    border-radius: 18px;
+    margin-top: 0.5rem;
+  }
 
-    .vloume i {
-        font-size: 2.4rem;
-    }
+  .vloume i {
+    font-size: 2.4rem;
+  }
 }

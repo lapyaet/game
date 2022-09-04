@@ -1,691 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Betting Slots</title>
-    <link rel="shortcut icon" type="image" href="./assets/images/menu-board/gameicon_copy_2-removebg-preview.png">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <script src="https://kit.fontawesome.com/b053ab4793.js" crossorigin="anonymous"></script>
-</head>
-<body>
+    <link
+      rel="shortcut icon"
+      type="image"
+      href="./assets/images/menu-board/gameicon_copy_2-removebg-preview.png"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/b053ab4793.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <section class="gameBeforeStart">
-    <section class="container">
+      <section class="container">
         <section class="game">
+          <!--wellcome start=====================================================================================-->
+          <div class="game__welcome">
+            <div class="game__welcome-top">
+              <div class="game__welcome-top-item1">
+                <div class="vloume">
+                  <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <!-- <img src="./assets/images/menu-board/sound.png" alt="" class="vloume"> -->
+                <img
+                  src="./assets/images/menu-board/victory.png"
+                  alt=""
+                  class="achievementBtn"
+                />
+                <img
+                  src="./assets/images/menu-board/setting.png"
+                  alt=""
+                  class="settingIn"
+                />
+              </div>
+              <div class="game__welcome-top-item2">
+                <div class="game__welcome-top-item2-name">
+                  <div class="game__welcome-top-item2-name-left">
+                    <p>John</p>
+                    <div class="game__welcome-top-item2-name-left-level">
+                      <div class="level-bar"></div>
+                    </div>
+                  </div>
+                  <img
+                    src="./assets/images/menu-board/person icon.png"
+                    alt=""
+                  />
+                </div>
+                <div class="game__welcome-top-item2-coin">
+                  <img src="./assets/images/btn/coin1.png" alt="" />
+                  <p class="wellcomeTotal"></p>
+                </div>
+              </div>
+            </div>
+            <div class="game__welcome-center">
+              <img
+                src="./assets/images/menu-board/play.png"
+                alt=""
+                id="welcomePlay"
+              />
+            </div>
+            <div class="loading__container">
+              <div class="loading">
+                <h1>loading....</h1>
+                <div class="line-box">
+                  <div class="line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--welcome end===================================================================================-->
 
-            <!--wellcome start=====================================================================================-->
-            <div class="game__welcome">
-                <div class="game__welcome-top">
-                    <div class="game__welcome-top-item1">
-                        <div class="vloume">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </div>
-                        <!-- <img src="./assets/images/menu-board/sound.png" alt="" class="vloume"> -->
-                        <img src="./assets/images/menu-board/victory.png" alt="" class="achievementBtn">
-                        <img src="./assets/images/menu-board/setting.png" alt="" class="settingIn">
-                    </div>
-                    <div class="game__welcome-top-item2">
-                        <div class="game__welcome-top-item2-name">
-                            <div class="game__welcome-top-item2-name-left">
-                                <p>John</p>
-                                <div class="game__welcome-top-item2-name-left-level">
-                                    <div class="level-bar"></div>
-                                </div>
-                            </div>
-                            <img src="./assets/images/menu-board/person icon.png" alt="">
-                        </div>
-                        <div class="game__welcome-top-item2-coin">
-                            <img src="./assets/images/btn/coin1.png" alt="">
-                            <p class="wellcomeTotal"></p>
-                        </div>
-                    </div>
+          <!--profile start==================================================================================-->
+          <div class="profile__setting">
+            <div class="profile__setting-left">
+              <h4>John</h4>
+              <div class="profile__level-bar">
+                <div></div>
+              </div>
+              <div class="profile__setting-total">
+                <img src="./assets/images/btn/coin1.png" alt="" />
+                <p class="profileTotalCoin">10,000</p>
+              </div>
+              <div class="profile__setting-code">
+                <input type="text" placeholder="Redeem code" />
+                <button>
+                  <i class="fa-solid fa-right-long"></i>
+                </button>
+              </div>
+            </div>
+            <div class="profile__setting-right">
+              <img src="./assets/images/menu-board/person icon.png" alt="" />
+            </div>
+            <div class="quit-profile">
+              <i class="fa-solid fa-caret-left"></i>
+            </div>
+          </div>
+          <!--profile end=====================================================================================-->
+
+          <!--setting start ===================================================================================-->
+          <div class="setting__container">
+            <h3>Setting</h3>
+            <div class="setting__container-item">
+              <div class="setting__container-item-left">
+                <p>Music</p>
+                <p>Volume</p>
+              </div>
+              <div class="setting__container-item-right">
+                <span class="switch">
+                  <input type="checkbox" id="switcher" />
+                  <label for="switcher"></label>
+                </span>
+                <div class="slider-cont">
+                  <div class="slider">
+                    <input type="range" min="0" max="100" value="100" />
+                    <progress min="0" max="100" value="100"></progress>
+                  </div>
                 </div>
-                <div class="game__welcome-center">
-                    <img src="./assets/images/menu-board/play.png" alt="" id="welcomePlay">
+              </div>
+            </div>
+            <div class="setting__container-count">
+                <div class="setting__container-count-text">
+                    <p>Timer</p>
                 </div>
-                <div class="loading__container">
-                    <div class="loading">
-                        <h1>loading....</h1>
-                    <div class="line-box">
-                        <div class="line"></div>
-                        </div>
-                    </div>
+                <div class="setting__container-count-btn">
+                    <button class="countPlusBtn" onclick="plusBtn()"><i class="fa-solid fa-plus"></i></button>
+                    <span class="countText">30</span>
+                    <button class="countMinusBtn" onclick="minusBtn()"><i class="fa-solid fa-minus"></i></button>
                 </div>
             </div>
-            <!--welcome end===================================================================================-->
-
-            <!--profile start==================================================================================-->
-            <div class="profile__setting">
-                <div class="profile__setting-left">
-                    <h4>John</h4>
-                    <div class="profile__level-bar">
-                        <div></div>
-                    </div>
-                    <div class="profile__setting-total">
-                        <img src="./assets/images/btn/coin1.png" alt="">
-                        <p class="profileTotalCoin">10,000</p>
-                    </div>
-                    <div class="profile__setting-code">
-                        <input type="text" placeholder="Redeem code">
-                        <button>
-                            <i class="fa-solid fa-right-long"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="profile__setting-right">
-                    <img src="./assets/images/menu-board/person icon.png" alt="">
-                </div>
-                <div class="quit-profile">
-                    <i class="fa-solid fa-caret-left"></i>
-                </div>
+            <div class="setting__container-text">
+              <p class="text">Privacy Policy</p>
+              <p class="text text2">User Agreement</p>
+              <p class="text text3">About Betting Slots</p>
             </div>
-            <!--profile end=====================================================================================-->
-
-            <!--setting start ===================================================================================-->
-            <div class="setting__container">
-                <h3>Setting</h3>
-                <div class="setting__container-item">
-                    <div class="setting__container-item-left">
-                        <p>Music</p>
-                        <p>Volume</p>
-                    </div>
-                    <div class="setting__container-item-right">
-                        <span class="switch">
-                            <input type="checkbox" id="switcher">
-                            <label for="switcher"></label>
-                        </span>
-                        <div class="slider-cont">
-                            <div class="slider">
-                                <input type="range" min="0" max="100" value="100">
-                                <progress min="0" max="100" value="100"></progress>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="setting__container-text">
-                    <p class="text">Privacy Policy </p>
-                    <p class="text text2">User Agreement </p>
-                    <p class="text text3">About Betting Slots </p>
-                </div>
-                <div class="quit-setting">
-                    <i class="fa-solid fa-caret-left"></i>
-                </div>
+            <div class="quit-setting">
+              <i class="fa-solid fa-caret-left"></i>
             </div>
-            <!--setting end======================================================================================-->
+          </div>
+          <!--setting end======================================================================================-->
 
-            <!--achievement start=================================================================================-->
-            <div class="achievement__container">
-                <h3>Leaderboard</h3>
-                <div class="achievement__container-item">
-                    <div class="achivement__container-item-text">
-                        <h5>John</h5>
-                        <div class="trophy">
-                            <p class="achievementAmount">0</p>
-                            <i class="fa-solid fa-trophy first"></i>
-                        </div>
-                    </div>
-                    <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <div class="trophy">
-                            <p>0</p>
-                            <i class="fa-solid fa-trophy trophySecond"></i>
-                        </div>
-                    </div>
-                    <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <div class="trophy">
-                            <p>0</p>
-                            <i class="fa-solid fa-trophy third"></i>
-                        </div>
-                    </div>
-                    <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <p>0</p>
-                    </div>
-                    <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <p>0</p>
-                    </div>
-                    <div class="achivement__container-item-text">
-                        <h5>Name</h5>
-                        <p>0</p>
-                    </div>
-                    <div class="achivement__container-item-text text7">
-                        <h5>Name</h5>
-                        <p>0</p>
-                    </div>
+          <!--achievement start=================================================================================-->
+          <div class="achievement__container">
+            <h3>Leaderboard</h3>
+            <div class="achievement__container-item">
+              <div class="achivement__container-item-text">
+                <h5>John</h5>
+                <div class="trophy">
+                  <p class="achievementAmount">0</p>
+                  <i class="fa-solid fa-trophy first"></i>
                 </div>
-                <div class="quit-achievement">
-                    <i class="fa-solid fa-caret-left"></i>
+              </div>
+              <div class="achivement__container-item-text">
+                <h5>Name</h5>
+                <div class="trophy">
+                  <p>0</p>
+                  <i class="fa-solid fa-trophy trophySecond"></i>
                 </div>
+              </div>
+              <div class="achivement__container-item-text">
+                <h5>Name</h5>
+                <div class="trophy">
+                  <p>0</p>
+                  <i class="fa-solid fa-trophy third"></i>
+                </div>
+              </div>
+              <div class="achivement__container-item-text">
+                <h5>Name</h5>
+                <p>0</p>
+              </div>
+              <div class="achivement__container-item-text">
+                <h5>Name</h5>
+                <p>0</p>
+              </div>
+              <div class="achivement__container-item-text">
+                <h5>Name</h5>
+                <p>0</p>
+              </div>
+              <div class="achivement__container-item-text text7">
+                <h5>Name</h5>
+                <p>0</p>
+              </div>
             </div>
-            <!--achievement end ==================================================================================-->
+            <div class="quit-achievement">
+              <i class="fa-solid fa-caret-left"></i>
+            </div>
+          </div>
+          <!--achievement end ==================================================================================-->
 
-            <!--game version start================================================================================-->
-            <section class="version">
-                <div class="version-logo">
-                    <img src="./assets/images/menu-board/gameicon_copy_2-removebg-preview.png" alt="">
-                    <h4>Betting Slots</h4>
-                    <p>Version <span>2.4.0</span></p>
+          <!--game version start================================================================================-->
+          <section class="version">
+            <div class="version-logo">
+              <img
+                src="./assets/images/menu-board/gameicon_copy_2-removebg-preview.png"
+                alt=""
+              />
+              <h4>Betting Slots</h4>
+              <p>Version <span>2.4.0</span></p>
+            </div>
+            <div class="vesion-detial">
+              <p>Version</p>
+              <span>2.4.0_3eb6f01_210926</span>
+            </div>
+            <div class="vesion-detial">
+              <p>Engine version</p>
+              <span>1065</span>
+            </div>
+            <div class="quit-version">
+              <i class="fa-solid fa-caret-left"></i>
+            </div>
+          </section>
+          <!--game version end===================================================================================-->
+
+          <div class="game__container">
+            <div class="game__container-left">
+              <div class="leftSideBoxContainer">
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/dog.png"
+                      alt=""
+                      id="dog"
+                    />
+                    <!-- <div class="reduceBtn" id="dog"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="dog-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x4</span></section>
+                  </div>
                 </div>
-                <div class="vesion-detial">
-                    <p>Version</p>
-                    <span>2.4.0_3eb6f01_210926</span>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/monkey.png"
+                      alt=""
+                      id="monkey"
+                    />
+                    <!-- <div class="reduceBtn" id="monkey"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="monkey-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><spanx>x6</span></section>
+                  </div>
                 </div>
-                <div class="vesion-detial">
-                    <p>Engine version</p>
-                    <span>1065</span>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/sheep.png"
+                      alt=""
+                      id="sheep"
+                    />
+                    <!-- <div class="reduceBtn" id="sheep"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="sheep-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x12</span></section>
+                  </div>
                 </div>
-                <div class="quit-version">
-                    <i class="fa-solid fa-caret-left"></i>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/elephant.png"
+                      alt=""
+                      id="elephant"
+                    />
+                    <!-- <div class="reduceBtn" id="elephant"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="elephant-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x24</span></section>
+                  </div>
                 </div>
-            </section>
-            <!--game version end===================================================================================-->
+              </div>
 
-            <div class="game__container">
-                <div class="game__container-left">
-                    <div class="leftSideBoxContainer">
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/dog.png" alt="" id="dog">
-                                <!-- <div class="reduceBtn" id="dog"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="dog-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x4</span></section>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/monkey.png" alt="" id="monkey">
-                                <!-- <div class="reduceBtn" id="monkey"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="monkey-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x6</span></section>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/sheep.png" alt="" id="sheep">
-                                <!-- <div class="reduceBtn" id="sheep"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span  id="sheep-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x12</span></section>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/elephant.png" alt="" id="elephant">
-                                <!-- <div class="reduceBtn" id="elephant"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span  id="elephant-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x24</span></section>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="rightSideBoxContainer">
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/seahorse.png" alt="" id="seahorse">
-                                <!-- <div class="reduceBtn" id="seahorse"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="seahorse-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x4</span></section>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/jellyfish.png" alt="" id="jellyfish">
-                                <!-- <div class="reduceBtn" id="jellyfish"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="jellyfish-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x6</span></section>
-                            </div>
-                        </div>          
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/dolphin.png" alt="" id="dolphin">
-                                <!-- <div class="reduceBtn" id="dolphin"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="dolphin-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x12</span></section>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="btnGroup">
-                                <img class="animalCircleImg image" src="./assets/images/round-buttons/shark.png" alt="" id="shark">
-                                <!-- <div class="reduceBtn" id="shark"><i class="fa-solid fa-caret-down"></i></div> -->
-                            </div>
-                            <div class="amountField">
-                                <section class="myValue"><span id="shark-amount" class="amount">0</span></section>
-                                <section class="maxValue"><span>x24</span></section>
-                            </div>
-                        </div>
-                    </div>
+              <div class="rightSideBoxContainer">
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/seahorse.png"
+                      alt=""
+                      id="seahorse"
+                    />
+                    <!-- <div class="reduceBtn" id="seahorse"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="seahorse-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x4</span></section>
+                  </div>
                 </div>
-                <div class="game__container-center">
-                    <div class="game__container-center-top">
-                        <div class="img1">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
-                                alt="tortoise(top corner)" class="tortoise">
-                            </div>
-                        </div>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/jellyfish.png"
+                      alt=""
+                      id="jellyfish"
+                    />
+                    <!-- <div class="reduceBtn" id="jellyfish"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="jellyfish-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x6</span></section>
+                  </div>
+                </div>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/dolphin.png"
+                      alt=""
+                      id="dolphin"
+                    />
+                    <!-- <div class="reduceBtn" id="dolphin"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="dolphin-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x12</span></section>
+                  </div>
+                </div>
+                <div class="box">
+                  <div class="btnGroup">
+                    <img
+                      class="animalCircleImg image"
+                      src="./assets/images/round-buttons/shark.png"
+                      alt=""
+                      id="shark"
+                    />
+                    <!-- <div class="reduceBtn" id="shark"><i class="fa-solid fa-caret-down"></i></div> -->
+                  </div>
+                  <div class="amountField">
+                    <section class="myValue">
+                      <span id="shark-amount" class="amount">0</span>
+                    </section>
+                    <section class="maxValue"><span>x24</span></section>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="game__container-center">
+              <div class="game__container-center-top">
+                <div class="img1">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
+                      alt="tortoise(top corner)"
+                      class="tortoise"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img2">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dog(top corner).png" 
-                                alt="buttons/dog(top corner)" class="dog">
-                            </div>
-                        </div>
+                <div class="img2">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dog(top corner).png"
+                      alt="buttons/dog(top corner)"
+                      class="dog"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img3">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dog(top corner).png" 
-                                alt="buttons/dog(top corner)" class="dog">
-                            </div>
-                        </div>
+                <div class="img3">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dog(top corner).png"
+                      alt="buttons/dog(top corner)"
+                      class="dog"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img4">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dog(top corner).png" 
-                                alt="buttons/dog(top corner)" class="dog">
-                            </div>
-                        </div>
+                <div class="img4">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dog(top corner).png"
+                      alt="buttons/dog(top corner)"
+                      class="dog"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img5">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/whale(top corner).png"
-                                alt="whale(top corner)" class="whale">
-                            </div>
-                        </div>
+                <div class="img5">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/whale(top corner).png"
+                      alt="whale(top corner)"
+                      class="whale"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img6">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/seahorse(right side).png" 
-                                alt="seahorse(right side).png" class="seahorse">
-                            </div>
-                        </div>
+                <div class="img6">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/seahorse(right side).png"
+                      alt="seahorse(right side).png"
+                      class="seahorse"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img7">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/seahorse(right side).png" 
-                                alt="seahorse(right side).png" class="seahorse">
-                            </div>
-                        </div>
+                <div class="img7">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/seahorse(right side).png"
+                      alt="seahorse(right side).png"
+                      class="seahorse"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img8">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/seahorse(right side).png" 
-                                alt="seahorse(right side).png" class="seahorse">
-                            </div>
-                        </div>
+                <div class="img8">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/seahorse(right side).png"
+                      alt="seahorse(right side).png"
+                      class="seahorse"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img9">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/1661398104010-removebg-preview.png" 
-                                alt="tortoise(top corner)" class="tortoise">
-                            </div>
-                        </div>
+                <div class="img9">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
+                      alt="tortoise(top corner)"
+                      class="tortoise"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img10">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/jellyfish(top corner).png"
-                                alt="jellyfish(top corner)" class="jellyfish">
-                            </div>
-                        </div> 
+                <div class="img10">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/jellyfish(top corner).png"
+                      alt="jellyfish(top corner)"
+                      class="jellyfish"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img11">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/jellyfish(top corner).png"
-                                alt="jellyfish(top corner)" class="jellyfish">
-                            </div>
-                        </div>
-                        
-                        <div class="img12">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/jellyfish(top corner).png"
-                                alt="jellyfish(top corner)" class="jellyfish"> 
-                            </div>
-                        </div>
+                <div class="img11">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/jellyfish(top corner).png"
+                      alt="jellyfish(top corner)"
+                      class="jellyfish"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img13">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/whale(right side).png" 
-                                alt="whale(right side).png" class="whale">
-                            </div>
-                        </div>
+                <div class="img12">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/jellyfish(top corner).png"
+                      alt="jellyfish(top corner)"
+                      class="jellyfish"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img14">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dolphin(bottom).png" 
-                                alt="dolphin(bottom).png" class="dolphin">
-                            </div>
-                        </div>
+                <div class="img13">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/whale(right side).png"
+                      alt="whale(right side).png"
+                      class="whale"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img15">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dolphin(bottom).png" 
-                                alt="dolphin(bottom).png" class="dolphin">
-                            </div>
-                        </div>
+                <div class="img14">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dolphin(bottom).png"
+                      alt="dolphin(bottom).png"
+                      class="dolphin"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img16"> 
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/dolphin(bottom).png" 
-                                alt="dolphin(bottom).png" class="dolphin">
-                            </div>
-                        </div>
+                <div class="img15">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dolphin(bottom).png"
+                      alt="dolphin(bottom).png"
+                      class="dolphin"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img17">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
-                                alt="tortoise(top corner)" class="tortoise">
-                            </div>
-                        </div>
+                <div class="img16">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/dolphin(bottom).png"
+                      alt="dolphin(bottom).png"
+                      class="dolphin"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img18">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/shark(right side).png" 
-                                alt="shark(right side)" class="shark">
-                            </div>
-                        </div>
+                <div class="img17">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
+                      alt="tortoise(top corner)"
+                      class="tortoise"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img19">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/shark(right side).png" 
-                                alt="shark(right side)" class="shark">
-                            </div>
-                        </div>
+                <div class="img18">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/shark(right side).png"
+                      alt="shark(right side)"
+                      class="shark"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img20">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/shark(right side).png" 
-                                alt="shark(right side)" class="shark">
-                            </div>
-                        </div>
+                <div class="img19">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/shark(right side).png"
+                      alt="shark(right side)"
+                      class="shark"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img21">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/whale(top corner).png" 
-                                alt="whale(top corner).png" class="whale">
-                            </div>
-                        </div>
+                <div class="img20">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/shark(right side).png"
+                      alt="shark(right side)"
+                      class="shark"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img22">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/elephant(bottom).png" 
-                                alt="elephant(bottom).png" class="elephant">
-                            </div>
-                        </div>
+                <div class="img21">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/whale(top corner).png"
+                      alt="whale(top corner).png"
+                      class="whale"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img23">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/elephant(bottom).png" 
-                                alt="elephant(bottom).png" class="elephant">
-                            </div>
-                        </div>
+                <div class="img22">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/elephant(bottom).png"
+                      alt="elephant(bottom).png"
+                      class="elephant"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img24">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/elephant(bottom).png" 
-                                alt="elephant(bottom).png" class="elephant">
-                            </div>
-                        </div>
+                <div class="img23">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/elephant(bottom).png"
+                      alt="elephant(bottom).png"
+                      class="elephant"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img25">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/1661398104010-removebg-preview.png" 
-                                alt="tortoise(bottom).png" class="tortoise">
-                            </div>
-                        </div>
+                <div class="img24">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/elephant(bottom).png"
+                      alt="elephant(bottom).png"
+                      class="elephant"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img26">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/sheep(left side).png" 
-                                alt="sheep(left side).png" class="sheep">
-                            </div>
-                        </div>
+                <div class="img25">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/1661398104010-removebg-preview.png"
+                      alt="tortoise(bottom).png"
+                      class="tortoise"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img27">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/sheep(left side).png" 
-                                alt="sheep(left side).png" class="sheep">
-                            </div>
-                        </div>
+                <div class="img26">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/sheep(left side).png"
+                      alt="sheep(left side).png"
+                      class="sheep"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img28">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/sheep(left side).png" 
-                                alt="sheep(left side).png" class="sheep">
-                            </div>
-                        </div>
+                <div class="img27">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/sheep(left side).png"
+                      alt="sheep(left side).png"
+                      class="sheep"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img29">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/whale(top corner).png" 
-                                alt="" class="whale">
-                            </div>
-                        </div>
+                <div class="img28">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/sheep(left side).png"
+                      alt="sheep(left side).png"
+                      class="sheep"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img30">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/monkey(left side).png" 
-                                alt="monkey(left side).png" class="monkey">
-                            </div>
-                        </div>
+                <div class="img29">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/whale(top corner).png"
+                      alt=""
+                      class="whale"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img31">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/monkey(left side).png" 
-                                alt="monkey(left side).png" class="monkey">
-                            </div>
-                        </div>
+                <div class="img30">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/monkey(left side).png"
+                      alt="monkey(left side).png"
+                      class="monkey"
+                    />
+                  </div>
+                </div>
 
-                        <div class="img32">
-                            <div class="img-container">
-                                <img src="./assets/images/square-buttons/monkey(left side).png" 
-                                alt="monkey(left side).png" class="monkey">
-                            </div>
-                        </div>
-                        <div class="time">
-                            <div class="circle">
-                                <svg>
-                                    <circle cx="70" cy="70" r="70"></circle>
-                                    <circle cx="70" cy="70" r="70" id="ss"></circle>
-                                </svg>
-                                <div id="second">00</div>
-                            </div>
-                        </div>
-                        <div class="winOrLose">
-                            <!-- <h3 class="winOrLoseHeader">Congratulation!</h3> -->
-                            <img src="" alt="" class="win-animal">
-                            <!-- <h5 class="winOrLoseText">You Win</h5>
+                <div class="img31">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/monkey(left side).png"
+                      alt="monkey(left side).png"
+                      class="monkey"
+                    />
+                  </div>
+                </div>
+
+                <div class="img32">
+                  <div class="img-container">
+                    <img
+                      src="./assets/images/square-buttons/monkey(left side).png"
+                      alt="monkey(left side).png"
+                      class="monkey"
+                    />
+                  </div>
+                </div>
+                <div class="time">
+                  <div class="circle">
+                    <svg>
+                      <circle cx="70" cy="70" r="70"></circle>
+                      <circle cx="70" cy="70" r="70" id="ss"></circle>
+                    </svg>
+                    <div id="second"></div>
+                  </div>
+                </div>
+                <div class="winOrLose">
+                  <!-- <h3 class="winOrLoseHeader">Congratulation!</h3> -->
+                  <img src="" alt="" class="win-animal" />
+                  <!-- <h5 class="winOrLoseText">You Win</h5>
                             <p class="result">total Win</p> -->
-                        </div>
-                        <div class="sure-quit">
-                            <p>Are you sure to quit</p>
-                            <button class="quit-yes">Yes</button>
-                            <button class="quit-no">No</button>
-                        </div>
-                        <img src="./assets/images/menu-board/giphy.gif" alt="" class="celebration">
-                        <img src="./assets/images/menu-board/a7e63493c33a7b364f81ed6d71526908.gif" alt="" class="loserGif">
-                    </div>
-                    <div class="game__container-center-bottom">
-                        <div class="game__container-center-bottom-item1">
-                            <p>
-                                Total Bet
-                            </p>
-                            <div class="game__container-center-bottom-item1-price">
-                                <span class="bet-amount">0</span>
-                            </div>
-                                
-                        </div>
-                        <div class="game__container-center-bottom-item2">
-                            <p class="loseText">WIN</p>
-                            <div class="game__container-center-bottom-item2-price">
-                                <span class="win">0</span>
-                            </div>
-                        </div>
-                        <div class="game__container-center-bottom-item2">
-                            <p>COIN</p>
-                            <div class="game__container-center-bottom-item2-price">
-                                <span class="totalCoin">600</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="game__container-right">
-                    <div class="box">
-                        <img class="animalCircleImg image update" src="./assets/images/round-buttons/1661398104150-removebg-preview.png" alt="" id="tortoise">
-                        <div class="box-amount box-amount1">
-                            <section class="box-amount-item">
-                                <span id="tortoise-amount" class="amount">
-                                    0
-                                </span>
-                            </section>
-                            <section class="box-amount-item">
-                                <span>
-                                    x24
-                                </span>
-                            </section>
-                        </div>
-                        <!-- <div class="reduceBtn" id="tortoise"><i class="fa-solid fa-caret-down"></i></div> -->
-                    </div>
-                    <div class="box">
-                        <img class="animalCircleImg image" src="./assets/images/round-buttons/whale.png" alt="" id="whale">
-                        <div class="box-amount">
-                            <section class="box-amount-item"><span id="whale-amount" class="amount">0</span></section>
-                            <section class="box-amount-item"><span>x48</span></section>
-                        </div>
-                        <!-- <div class="reduceBtn" id="whale"><i class="fa-solid fa-caret-down"></i></div> -->
-                    </div>
-                    <div class="box">
-                        <img class="animalCircleImg image" src="./assets/images/round-buttons/land.png" alt="" id="land">
-                        <div class="box-amount">
-                            <section class="box-amount-item"><span id="land-amount" class="amount">0</span></section>
-                            <section class="box-amount-item"><span>x2</span></section>
-                        </div>
-                        <!-- <div class="reduceBtn" id="land"><i class="fa-solid fa-caret-down"></i></div> -->
-                    </div>
-                    <div class="box">
-                        <img class="animalCircleImg image" src="./assets/images/round-buttons/sea.png" alt="" id="sea">
-                        <div class="box-amount">
-                            <section class="box-amount-item"><span id="sea-amount" class="amount">0</span></section>
-                            <section class="box-amount-item"><span>x2</span></section>
-                        </div>
-                        <!-- <div class="reduceBtn" id="sea"><i class="fa-solid fa-caret-down"></i></div> -->
-                    </div>
-                    <!-- <div class="btn-box">   
+                <div class="sure-quit">
+                  <p>Are you sure to quit</p>
+                  <button class="quit-yes">Yes</button>
+                  <button class="quit-no">No</button>
+                </div>
+                <img
+                  src="./assets/images/menu-board/giphy.gif"
+                  alt=""
+                  class="celebration"
+                />
+                <img
+                  src="./assets/images/menu-board/a7e63493c33a7b364f81ed6d71526908.gif"
+                  alt=""
+                  class="loserGif"
+                />
+                
+                <p class="anyBet">You need to Bet</p>
+              </div>
+              <div class="game__container-center-bottom">
+                <div class="game__container-center-bottom-item1">
+                  <p>Total Bet</p>
+                  <div class="game__container-center-bottom-item1-price">
+                    <span class="bet-amount">0</span>
+                  </div>
+                </div>
+                <div class="game__container-center-bottom-item2">
+                  <p class="loseText">WIN</p>
+                  <div class="game__container-center-bottom-item2-price">
+                    <span class="win">0</span>
+                  </div>
+                </div>
+                <div class="game__container-center-bottom-item2">
+                  <p>COIN</p>
+                  <div class="game__container-center-bottom-item2-price">
+                    <span class="totalCoin">600</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="game__container-right">
+              <div class="box">
+                <img
+                  class="animalCircleImg image update"
+                  src="./assets/images/round-buttons/1661398104150-removebg-preview.png"
+                  alt=""
+                  id="tortoise"
+                />
+                <div class="box-amount box-amount1">
+                  <section class="box-amount-item">
+                    <span id="tortoise-amount" class="amount"> 0 </span>
+                  </section>
+                  <section class="box-amount-item">
+                    <span> x24 </span>
+                  </section>
+                </div>
+                <!-- <div class="reduceBtn" id="tortoise"><i class="fa-solid fa-caret-down"></i></div> -->
+              </div>
+              <div class="box">
+                <img
+                  class="animalCircleImg image"
+                  src="./assets/images/round-buttons/whale.png"
+                  alt=""
+                  id="whale"
+                />
+                <div class="box-amount">
+                  <section class="box-amount-item">
+                    <span id="whale-amount" class="amount">0</span>
+                  </section>
+                  <section class="box-amount-item"><span>x48</span></section>
+                </div>
+                <!-- <div class="reduceBtn" id="whale"><i class="fa-solid fa-caret-down"></i></div> -->
+              </div>
+              <div class="box">
+                <img
+                  class="animalCircleImg image"
+                  src="./assets/images/round-buttons/land.png"
+                  alt=""
+                  id="land"
+                />
+                <div class="box-amount">
+                  <section class="box-amount-item">
+                    <span id="land-amount" class="amount">0</span>
+                  </section>
+                  <section class="box-amount-item"><span>x2</span></section>
+                </div>
+                <!-- <div class="reduceBtn" id="land"><i class="fa-solid fa-caret-down"></i></div> -->
+              </div>
+              <div class="box">
+                <img
+                  class="animalCircleImg image"
+                  src="./assets/images/round-buttons/sea.png"
+                  alt=""
+                  id="sea"
+                />
+                <div class="box-amount">
+                  <section class="box-amount-item">
+                    <span id="sea-amount" class="amount">0</span>
+                  </section>
+                  <section class="box-amount-item"><span>x2</span></section>
+                </div>
+                <!-- <div class="reduceBtn" id="sea"><i class="fa-solid fa-caret-down"></i></div> -->
+              </div>
+              <!-- <div class="btn-box">   
                         <img class="rotate" src="./assets/images/btn/rotate.png" alt="">
                     </div> -->
-                    <div class="btn">
-                            <img src="./assets/images/btn/play.png" alt="" class="image1 start-btn">
-                        <img src="./assets/images/btn/cross.png" alt="" class="stop-btn">
-                    </div>
-                    <button class="quit-btn">Quit</button>
-                    <div class="get-coin ad-coin">
-                        <img src="./assets/images/btn/coin1.png" alt="">
-                        <span>Get 20 coins</span>
-                    </div>
-                </div>
+              <div class="btn">
+                <img
+                  src="./assets/images/btn/play.png"
+                  alt=""
+                  class="image1 start-btn"
+                />
+                <img
+                  src="./assets/images/btn/cross.png"
+                  alt=""
+                  class="stop-btn"
+                />
+              </div>
+              <button class="quit-btn">Quit</button>
+              <div class="get-coin ad-coin">
+                <img src="./assets/images/btn/coin1.png" alt="" />
+                <span>Get 20 coins</span>
+              </div>
             </div>
+          </div>
         </section>
         <div class="left__circle">
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
         </div>
         <div class="right__circle">
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
+          <i class="fa-solid fa-circle"></i>
         </div>
-        <img src="./assets/images/menu-board/NR7Y.gif" alt="" class="game__container-winning winning1">
-        <img src="./assets/images/menu-board/NR7Y.gif" alt="" class="game__container-winning winning2">
-        <img src="./assets/images/menu-board/NR7Y.gif" alt="" class="game__container-winning winning3">
-        <img src="./assets/images/menu-board/NR7Y.gif" alt="" class="game__container-winning winning4">
+        <img
+          src="./assets/images/menu-board/NR7Y.gif"
+          alt=""
+          class="game__container-winning winning1"
+        />
+        <img
+          src="./assets/images/menu-board/NR7Y.gif"
+          alt=""
+          class="game__container-winning winning2"
+        />
+        <img
+          src="./assets/images/menu-board/NR7Y.gif"
+          alt=""
+          class="game__container-winning winning3"
+        />
+        <img
+          src="./assets/images/menu-board/NR7Y.gif"
+          alt=""
+          class="game__container-winning winning4"
+        />
+        <img src="./assets/images/menu-board/com-gif-maker-1--unscreen.gif" alt="" class="babtCry">
+        <img src="./assets/images/menu-board/com-gif-maker-1--unscreen.gif" alt="" class="babtCry1">
+        <section class="result-animal">
+        </section>
+      </section>
+      <audio
+        controls
+        src="./assets/audios/Cartoon-Character-Aquarium.mp3"
+        id="audioTimer"
+      >
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio controls src="./assets/audios/Click.mp3" id="click">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio
+        controls
+        src="./assets/audios/Slot Reel Spin Melody.wav"
+        id="spanWheel"
+      >
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio controls src="./assets/audios/Timer_Loop2 (1).mp3" id="clock">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio
+        controls
+        src="./assets/audios/ExplosionBomb CRB01_64_1 (1).mp3"
+        id="clockAlarm"
+      >
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio controls src="./assets/audios/Winning.mp3" id="winning">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio
+        controls
+        src="./assets/audios/TrumpetCadenceTrum AC052001 (1).mp3"
+        id="loserSong"
+      >
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+
+      <audio controls src="./assets/audios/happy.mp3" id="happy">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+      <div class="ring"></div>
+      <span class="ring-text"> loading... </span>
+
     </section>
-    <audio
-      controls
-      src="./assets/audios/Cartoon-Character-Aquarium.mp3" id="audioTimer">
-          Your browser does not support the
-          <code>audio</code> element.
-  </audio>
-
-  <audio
-  controls
-  src="./assets/audios/Click.mp3" id="click">
-      Your browser does not support the
-      <code>audio</code> element.
-</audio>
-
-<audio
-controls
-src="./assets/audios/Slot Reel Spin Melody.wav" id="spanWheel">
-    Your browser does not support the
-    <code>audio</code> element.
-</audio>
-
-<audio
-controls
-src="./assets/audios/Timer_Loop2 (1).mp3" id="clock">
-    Your browser does not support the
-    <code>audio</code> element.
-</audio>
-
-<audio
-controls
-src="./assets/audios/ExplosionBomb CRB01_64_1 (1).mp3" id="clockAlarm">
-    Your browser does not support the
-    <code>audio</code> element.
-</audio>
-
-<audio
-controls
-src="./assets/audios/Winning.mp3" id="winning">
-    Your browser does not support the
-    <code>audio</code> element.
-</audio>
-
-<audio
-      controls
-      src="./assets/audios/TrumpetCadenceTrum AC052001 (1).mp3" id="loserSong">
-          Your browser does not support the
-          <code>audio</code> element.
-</audio>
-
-<audio
-      controls
-      src="./assets/audios/happy.mp3" id="happy">
-          Your browser does not support the
-          <code>audio</code> element.
-</audio>
-<div class="ring">
-</div>
-<span class="ring-text">
-    loading...
-</span>
-<section class="result-animal">
-    
-</section>
-</section>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
