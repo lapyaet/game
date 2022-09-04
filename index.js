@@ -244,8 +244,8 @@ window.addEventListener("load", function () {
   let countNumber = this.localStorage.getItem("count");
   const accpeted = this.localStorage.getItem("accept");
   let progressNumber = this.localStorage.getItem("progress");
-  slider.value = parseInt(progressNumber);
-  progressBar.value = parseInt(progressNumber);
+  slider.value = progressNumber;
+  progressBar.value = progressNumber;
   happy.volume = slider.value / 100;
   sound.volume = slider.value / 100;
   clock.volume = slider.value / 100;
@@ -373,7 +373,7 @@ const countMinusBtn = document.querySelector(".countMinusBtn");
 let countTime = 30;
 let count = countTime;
 let countString = countTime.toString();
-localStorage.setItem("count", countString);
+// localStorage.setItem("count", countString);
 countText.innerText = countTime;
 function plusBtn() {
   if (countTime >= 60) {
