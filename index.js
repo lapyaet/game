@@ -383,7 +383,7 @@ function plusBtn() {
     disabled = false;
     countTime++;
     count = countTime;
-    countString = countTime;
+    countString = countTime.toString();
     // console.log(typeof countString);
     localStorage.setItem("count", countString);
     countText.innerText = countTime;
@@ -400,7 +400,7 @@ function minusBtn() {
     disabled = false;
     countTime--;
     count = countTime;
-    countString = countTime;
+    countString = countTime.toString();
     localStorage.setItem("count", countString);
     countText.innerText = countTime;
     countMinusBtn.style.background = "#ec381f";
