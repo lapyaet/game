@@ -372,7 +372,8 @@ const countMinusBtn = document.querySelector(".countMinusBtn");
 
 let countTime = 30;
 let count = countTime;
-let countString = countTime;
+let countString = countTime.toString();
+localStorage.setItem("count", countString);
 countText.innerText = countTime;
 function plusBtn() {
   if (countTime >= 60) {
