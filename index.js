@@ -241,24 +241,27 @@ switcher.addEventListener("input", function () {
 });
 
 window.addEventListener("load", function () {
-  // let countNumber = this.localStorage.getItem("count");
+  let countNumber = this.localStorage.getItem("count");
   const accpeted = this.localStorage.getItem("accept");
-  // let progressNumber = this.localStorage.getItem("progress");
-  // console.log(progressNumber);
-  // slider.value = progressNumber;
-  // progressBar.value = progressNumber;
-  // happy.volume = slider.value / 100;
-  // sound.volume = slider.value / 100;
-  // clock.volume = slider.value / 100;
-  // clockAlarm.volume = slider.value / 100;
-  // click.volume = slider.value / 100;
-  // spanWheel.volume = slider.value / 100;
-  // winning.volume = slider.value / 100;
-  // loserSong.volume = slider.value / 100;
-  // countTime = parseInt(countNumber);
-  // // console.log(typeof countTime);
-  // countText.innerText = countTime;
-  // count = countTime;
+  let progressNumber = this.localStorage.getItem("progress");
+  if (progressNumber === null) {
+    progressNumber = 100;
+  }
+  console.log(progressNumber);
+  slider.value = progressNumber;
+  progressBar.value = progressNumber;
+  happy.volume = slider.value / 100;
+  sound.volume = slider.value / 100;
+  clock.volume = slider.value / 100;
+  clockAlarm.volume = slider.value / 100;
+  click.volume = slider.value / 100;
+  spanWheel.volume = slider.value / 100;
+  winning.volume = slider.value / 100;
+  loserSong.volume = slider.value / 100;
+  countTime = countNumber ? srtingTONumber(countNumber) : 30;
+  // console.log(typeof countTime);
+  countText.innerText = countTime;
+  count = countTime;
   if (accpeted === "music") {
     happy.src = "";
     sound.src = "";
@@ -373,9 +376,7 @@ const countMinusBtn = document.querySelector(".countMinusBtn");
 
 let countTime = 30;
 let count = countTime;
-// let countString = countTime;
-// console.log(countTime);
-// localStorage.setItem("counting", countString);
+let countString = countTime;
 countText.innerText = countTime;
 function plusBtn() {
   if (countTime >= 60) {
@@ -386,11 +387,10 @@ function plusBtn() {
     disabled = false;
     countTime++;
     count = countTime;
-    // countString = countTime.toString();
-    // console.log(typeof countString);
-    // localStorage.setItem("count", countString);
+    countString = countTime;
     countText.innerText = countTime;
     countPlusBtn.style.background = "#70e000";
+    numberTostring();
   }
 }
 
@@ -403,11 +403,21 @@ function minusBtn() {
     disabled = false;
     countTime--;
     count = countTime;
-    // countString = countTime.toString();
-    // localStorage.setItem("count", countString);
+    countString = countTime;
     countText.innerText = countTime;
     countMinusBtn.style.background = "#ec381f";
+    numberTostring();
   }
+}
+
+function numberTostring() {
+  const result = countString.toString();
+  localStorage.setItem("count", result);
+}
+
+function srtingTONumber(string) {
+  const StringNumber = parseInt(string);
+  return StringNumber;
 }
 
 let timerId = 0;
