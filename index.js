@@ -16,6 +16,16 @@ function playAlarm(a) {
   a.loop = true;
 }
 
+function backgroundSound() {
+  happy.play();
+  happy.loop = true;
+}
+
+function stopBackground() {
+  happy.pause();
+  happy.currentTime = 0;
+}
+
 function stopAlarm(a) {
   a.pause();
   a.currentTime = 0;
@@ -61,7 +71,7 @@ volume.addEventListener("click", function () {
       soundOnOff.classList.add("fa-volume-high");
       soundOnOff.classList.remove("fa-volume-xmark");
       switcher.checked = false;
-      playAlarm(happy);
+      backgroundSound();
       // console.log(happy)
       // console.log(soundOnOff)
       vloumeControl = true;
@@ -178,7 +188,7 @@ function gameContainerPreloader() {
     beforeContainer.style.display = "flex";
     resltAnimal.style.display = "none";
     setTimeout(() => {
-      playAlarm(happy);
+      backgroundSound();
     }, 1000);
   });
 }
@@ -205,7 +215,7 @@ quitYes.addEventListener("click", function () {
   resltAnimal.style.display = "none";
   playPermission = true;
   stopAlarm(sound);
-  playAlarm(happy);
+  backgroundSound();
 });
 
 quitNo.addEventListener("click", function () {
@@ -234,7 +244,7 @@ switcher.addEventListener("input", function () {
       sound.src = "./assets/audios/Cartoon-Character-Aquarium.mp3";
       soundOnOff.classList.add("fa-volume-high");
       soundOnOff.classList.remove("fa-volume-xmark");
-      playAlarm(happy);
+      backgroundSound();
       vloumeControl = true;
     }
   }
@@ -269,8 +279,6 @@ window.addEventListener("load", function () {
     soundOnOff.classList.remove("fa-volume-high");
     switcher.checked = true;
     vloumeControl = false;
-  } else {
-    playAlarm(happy);
   }
 });
 
@@ -344,7 +352,7 @@ const quitProfile = document.querySelector(".quit-profile");
 welcomePlay.addEventListener("click", function () {
   settingChecked = false;
   playAlarm(sound);
-  stopAlarm(happy);
+  stopBackground();
   welcomeLoading.style.display = "block";
   setTimeout(() => {
     welcome.style.display = "none";
