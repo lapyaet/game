@@ -269,6 +269,8 @@ window.addEventListener("load", function () {
     soundOnOff.classList.remove("fa-volume-high");
     switcher.checked = true;
     vloumeControl = false;
+  } else {
+    playAlarm(happy);
   }
 });
 
