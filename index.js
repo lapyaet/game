@@ -803,6 +803,32 @@ function animationCircle(x, random) {
         setTimeout(function () {
           animalCircle[i - 1].classList.remove("animal-circle");
         }, 700);
+        if (i - 1 == 31) {
+          setTimeout(function () {
+            animalCircle[i - 1].classList.remove("animal-circle");
+          }, 100);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.add("animal-circle");
+          }, 200);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.remove("animal-circle");
+          }, 300);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.add("animal-circle");
+          }, 400);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.remove("animal-circle");
+          }, 500);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.add("animal-circle");
+          }, 600);
+          setTimeout(function () {
+            animalCircle[i - 1].classList.remove("animal-circle");
+          }, 700);
+          setTimeout(function () {
+            i = 0;
+          }, 3000);
+        }
         clearBetting();
       }, 3000);
       setTimeout(() => {
