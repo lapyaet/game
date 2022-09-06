@@ -121,6 +121,7 @@ const resltAnimal = document.querySelector(".result-animal");
 const antBet = document.querySelector(".anyBet");
 const babyCry = document.querySelector(".babtCry");
 const baby = document.querySelector(".babtCry1");
+const outOfCoin = document.querySelector(".outOfCoin");
 
 function getImage(url) {
   return new Promise(function (resolve, reject) {
@@ -439,69 +440,76 @@ startBtn.addEventListener("click", () => {
   if (playPermission === false) {
     return;
   } else {
-    playPermission = false;
-    stopAlarm(sound);
-    playAlarm(clock);
-    countDown.style.display = "block";
-    if (timerId !== 0) {
-      return;
-    }
-    timerId = setInterval(function () {
-      second.style.color = "aliceblue";
-      ss.style.stroke = "#04fc04";
-      count--;
-      let s = count;
-      s = s < 10 ? "0" + s : s;
-      second.innerText = s;
-      betsite = "hi";
-      if (count < 9) {
-        stopAlarm(clock);
-        playAlarm(clockAlarm);
-        second.style.color = "red";
-        ss.style.stroke = "red";
+    if (gameContainer.totalAmount == 0) {
+      outOfCoin.style.display = "block";
+      setTimeout(function () {
+        outOfCoin.style.display = "none";
+      }, 5000);
+    } else {
+      playPermission = false;
+      stopAlarm(sound);
+      playAlarm(clock);
+      countDown.style.display = "block";
+      if (timerId !== 0) {
+        return;
       }
-      if (count === 0) {
-        second.innerText = "GO";
-        stopAlarm(clockAlarm);
-      }
-      if (count < 0) {
-        stopAlarm(clockAlarm);
-        second.innerText = "";
-        countingStop();
-        betsite = "hello";
-        if (gameContainer.totalBet === 0) {
-          antBet.style.display = "block";
-          refershPremission = false;
-          setTimeout(() => {
-            antBet.style.display = "none";
-            playPermission = true;
-            refershPremission = true;
-            playAlarm(sound);
-          }, 6000);
-        } else {
-          second.style.color = "aliceblue";
-          ss.style.stroke = "#04fc04";
-          betsite = "hello";
-          countingStop();
-          stopAlarm(clockAlarm);
-          let random = numberRandom(32);
-          refershPremission = false;
-          gameIntervel = 0;
-          animationCircle(100, null);
-          setTimeout(() => {
-            clearInterval(gameIntervel);
-            gameIntervel = 0;
-            animationCircle(200, null);
-          }, 3000);
-          setTimeout(() => {
-            clearInterval(gameIntervel);
-            gameIntervel = 0;
-            animationCircle(350, random);
-          }, 5000);
+      timerId = setInterval(function () {
+        second.style.color = "aliceblue";
+        ss.style.stroke = "#04fc04";
+        count--;
+        let s = count;
+        s = s < 10 ? "0" + s : s;
+        second.innerText = s;
+        betsite = "hi";
+        if (count < 9) {
+          stopAlarm(clock);
+          playAlarm(clockAlarm);
+          second.style.color = "red";
+          ss.style.stroke = "red";
         }
-      }
-      ss.style.strokeDashoffset = 440 - (440 * count) / 60;
-    }, 1000);
+        if (count === 0) {
+          second.innerText = "GO";
+          stopAlarm(clockAlarm);
+        }
+        if (count < 0) {
+          stopAlarm(clockAlarm);
+          second.innerText = "";
+          countingStop();
+          betsite = "hello";
+          if (gameContainer.totalBet === 0) {
+            antBet.style.display = "block";
+            refershPremission = false;
+            setTimeout(() => {
+              antBet.style.display = "none";
+              playPermission = true;
+              refershPremission = true;
+              playAlarm(sound);
+            }, 6000);
+          } else {
+            second.style.color = "aliceblue";
+            ss.style.stroke = "#04fc04";
+            betsite = "hello";
+            countingStop();
+            stopAlarm(clockAlarm);
+            let random = numberRandom(32);
+            refershPremission = false;
+            gameIntervel = 0;
+            animationCircle(100, null);
+            setTimeout(() => {
+              clearInterval(gameIntervel);
+              gameIntervel = 0;
+              animationCircle(200, null);
+            }, 3000);
+            setTimeout(() => {
+              clearInterval(gameIntervel);
+              gameIntervel = 0;
+              animationCircle(350, random);
+            }, 5000);
+          }
+        }
+        ss.style.strokeDashoffset = 440 - (440 * count) / 60;
+      }, 1000);
+    }
   }
 });
 
@@ -638,7 +646,7 @@ const gameContainer = {
       betWin: 0,
     },
   ],
-  totalAmount: 600,
+  totalAmount: 4,
   totalBet: 0,
 };
 
@@ -713,7 +721,7 @@ for (let i = 0; i < animalBtn.length; i++) {
     } else {
       if (
         animalBtn[i].id === gameContainer.animal[i].name &&
-        gameContainer.animal[i].amount < 50
+        gameContainer.totalAmount > 0
       ) {
         gameContainer.animal[i].amount += 1;
         price[i].innerHTML = gameContainer.animal[i].amount;

@@ -1049,8 +1049,7 @@ html {
   transform: translateY(-50%, -50%);
   right: -10%;
   width: 80px;
-  height: 373.51px;
-  max-height: 373.51px;
+  height: auto;
   background: linear-gradient(90deg, #ffe600, #ff7b01);
   border-radius: 45px;
   display: none;
@@ -1085,6 +1084,17 @@ html {
   left: -10%;
   display: none;
   animation: win 1s ease-in-out;
+}
+
+.outOfCoin {
+  width: 90%;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  border-radius: 45px;
+  display: none;
+  z-index: 100;
+  animation: win 0.5s ease-in-out;
 }
 
 @media (min-width: 1400px) {
